@@ -12,11 +12,17 @@ const {
   description = 'Portfolio of Jadey, a technical game designer and gameplay programmer focused on Unreal Engine, gameplay systems, and level design.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isZh = Astro.url.pathname === '/zh/' || Astro.url.pathname.startsWith('/zh/');
+const lang = isZh ? 'zh-CN' : 'en';
+const englishPath = isZh ? Astro.url.pathname.replace(/^\/zh/, '') || '/' : Astro.url.pathname;
+const chinesePath = isZh ? Astro.url.pathname : `/zh${Astro.url.pathname}`;
+const englishUrl = new URL(englishPath, Astro.site);
+const chineseUrl = new URL(chinesePath, Astro.site);
 const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -28,11 +34,14 @@ const year = new Date().getFullYear();
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={chineseUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">{isZh ? '跳到主要内容' : 'Skip to content'}</a>
     <div class="site-shell">
       <SiteNav />
       <main id="main-content">
@@ -41,10 +50,10 @@ const year = new Date().getFullYear();
       <footer class="site-footer">
         <div>
           <span class="footer-mark" aria-hidden="true"></span>
-          Designed for play. Built for clarity.
+          {isZh ? '为游玩而设计，为清晰而构建。' : 'Designed for play. Built for clarity.'}
         </div>
         <div class="footer-links">
-          <a href="mailto:hello@example.com">Email</a>
+          <a href="mailto:hello@example.com">{isZh ? '邮箱' : 'Email'}</a>
           <a href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">GitHub</a>
           <span>© {year}</span>
         </div>

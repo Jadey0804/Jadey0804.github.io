@@ -1,0 +1,121 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import BilibiliPlayer from '../../../components/BilibiliPlayer.astro';
+---
+
+<SiteLayout
+  title="沉没之城项目案例 — Jadey"
+  description="一份 Unreal Engine 5 项目案例，涵盖水下玩法、系统性交互、谜题与关卡设计。"
+>
+  <article class="case-study">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/zh/#work">← 精选项目</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">玩法系统 · 关卡设计</p>
+          <h1>沉没之城</h1>
+          <p class="case-deck">
+            一款水下探索原型：移动、氧气压力、交互与环境谜题，共享一套清晰易读的设计语言。
+          </p>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>职责</dt><dd>玩法程序开发<br />关卡设计</dd></div>
+          <div><dt>引擎</dt><dd>Unreal Engine 5.4.4</dd></div>
+          <div><dt>平台</dt><dd>Windows PC</dd></div>
+          <div><dt>状态</dt><dd>作品集原型</dd></div>
+        </dl>
+      </div>
+      <div class="case-hero-art ocean-visual" data-reveal>
+        <div class="visual-grid"></div>
+        <svg viewBox="0 0 1200 580" aria-hidden="true">
+          <path d="M40 420c143-148 260-248 425-216 130 25 170 122 284 61 164-87 250 15 414 163" />
+          <path d="M18 505c180-113 314-70 417-167 114-108 214 13 308 24 158 18 264 50 447 147" />
+          <circle cx="454" cy="267" r="58" />
+          <circle cx="832" cy="340" r="34" />
+        </svg>
+        <div class="case-art-copy">
+          <span>项目案例 / 01</span>
+          <strong>下潜。<br />观察。<br />解谜。</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="overview-title">
+      <div class="case-sidebar">
+        <p class="section-index">01 / 概览</p>
+      </div>
+      <div class="case-content" data-reveal>
+        <h2 id="overview-title">设计挑战</h2>
+        <p class="lead-copy">
+          让水下移动既有陌生感又保持易读，并让玩家掌握足够的规则，在适度资源压力下完成物理谜题。
+        </p>
+        <div class="goal-grid">
+          <div><span>01</span><h3>易读的移动</h3><p>利用空间与地标，教会玩家下潜、上浮与加速。</p></div>
+          <div><span>02</span><h3>系统性谜题</h3><p>复用搬运、投掷、压力与重量，而不是堆叠一次性交互。</p></div>
+          <div><span>03</span><h3>可控的压力</h3><p>让氧气影响节奏，同时保持探索过程容易上手。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="video-title">
+      <div class="case-sidebar"><p class="section-index">02 / 实机展示</p></div>
+      <div class="case-content" data-reveal>
+        <div class="inline-heading">
+          <h2 id="video-title">让视频紧邻它所证明的设计决策。</h2>
+          <p>这里复用了首页中的 Bilibili 播放组件。</p>
+        </div>
+        <BilibiliPlayer bvid="BV1mfTW6vESe" title="作品集案例中的 Bilibili 视频嵌入演示" />
+        <p class="media-credit">当前为演示参考视频，完成案例后将替换为你自己的实机展示。</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="flow-title">
+      <div class="case-sidebar"><p class="section-index">03 / 关卡流程</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="flow-title">教学 → 测试 → 重组</h2>
+        <p class="lead-copy">
+          关卡先在安全环境中引入一个动作，再用清晰目标进行测试，最后把它与氧气压力和物体交互组合起来。
+        </p>
+        <div class="flow-diagram" aria-label="四阶段关卡流程">
+          <div><span>01</span><strong>安全下潜</strong><small>学习垂直移动</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>02</span><strong>可见目标</strong><small>理解被锁住的路线</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>03</span><strong>压力测试</strong><small>在氧气消耗下搬运</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>04</span><strong>规则重组</strong><small>组合已经学会的规则</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="iteration-title">
+      <div class="case-sidebar"><p class="section-index">04 / 迭代</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="iteration-title">让改动一目了然。</h2>
+        <p class="lead-copy">完整案例需要说明改了什么、为什么改。下面的画面演示了预期的呈现方式。</p>
+        <div class="iteration-grid">
+          <figure class="iteration-frame iteration-before">
+            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
+            <figcaption><span>修改前 / V01</span><strong>目标与路线争夺玩家注意力</strong></figcaption>
+          </figure>
+          <figure class="iteration-frame iteration-after">
+            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
+            <figcaption><span>修改后 / V03</span><strong>地标、光照与构图指向一致</strong></figcaption>
+          </figure>
+        </div>
+        <aside class="decision-callout">
+          <span>设计决策</span>
+          <p>把目标移到地平线之上，减少相互竞争的轮廓，并让返程路线从新角度复用同一个地标。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="next-case section-pad" data-reveal>
+      <p class="section-index">下一篇</p>
+      <a href="/zh/analysis/player-guidance/">
+        <span>阅读相关设计笔记</span>
+        <strong>通过空间教会玩家移动 <i>→</i></strong>
+      </a>
+    </section>
+  </article>
+</SiteLayout>

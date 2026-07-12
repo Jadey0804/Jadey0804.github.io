@@ -1,0 +1,86 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="通过关卡教会玩家水下移动 — Jadey"
+  description="一篇简明的关卡设计拆解：如何通过空间、构图与可控压力教会玩家水下移动。"
+>
+  <article class="article-page section-pad">
+    <header class="article-header" data-reveal>
+      <a class="back-link" href="/zh/analysis/">← 设计笔记</a>
+      <p class="eyebrow">关卡设计 · 玩家引导 · 阅读约 6 分钟</p>
+      <h1>不依赖教学弹窗，如何教会玩家水下移动</h1>
+      <p class="article-deck">
+        这篇示例拆解说明如何利用安全空间、构图、地标与逐步增加的压力，通过游玩教会玩家一种新的移动方式。
+      </p>
+      <div class="article-byline"><span>Jadey</span><span>设计笔记 01</span><span>演示内容</span></div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-toc" data-reveal>
+        <p>本页内容</p>
+        <a href="#problem">问题</a>
+        <a href="#sequence">教学顺序</a>
+        <a href="#feedback">反馈循环</a>
+        <a href="#takeaway">结论</a>
+      </aside>
+      <div class="article-body" data-reveal>
+        <section id="problem">
+          <p class="article-kicker">01 / 问题</p>
+          <h2>三维空间带来更多不确定性。</h2>
+          <p>
+            在陆地上，地面会持续告诉玩家哪里可以站立。进入水下后，玩家必须同时判断深度、朝向、氧气与目的地。文字提示可以解释按键，却无法建立空间信心。
+          </p>
+          <blockquote>关卡应先回答“我能去哪里？”，再追问“我能多快到达？”</blockquote>
+        </section>
+
+        <figure class="article-diagram" aria-label="三阶段玩家教学图">
+          <div><span>安全</span><strong>一个可见出口</strong></div>
+          <i>→</i>
+          <div><span>测试</span><strong>一次垂直选择</strong></div>
+          <i>→</i>
+          <div><span>重组</span><strong>路线 + 氧气</strong></div>
+          <figcaption>保持核心动作不变，每次只增加一个新决策。</figcaption>
+        </figure>
+
+        <section id="sequence">
+          <p class="article-kicker">02 / 教学顺序</p>
+          <h2>让镜头自然发现新的动作。</h2>
+          <p>
+            入口空间浅而平静，出口位于玩家上方，并由明亮结构框定。玩家向目标移动时，自然会产生上浮需求。下一个房间反转空间关系，把路线放到下方。
+          </p>
+          <div class="principle-grid">
+            <div><span>01</span><h3>框定目标</h3><p>先使用对比度与轮廓，再考虑 UI 标记。</p></div>
+            <div><span>02</span><h3>保护第一次尝试</h3><p>玩家学习垂直轴时，不设置氧气失败。</p></div>
+            <div><span>03</span><h3>从新角度重复</h3><p>确认玩家理解规则，但不重复完全相同的房间。</p></div>
+          </div>
+        </section>
+
+        <section id="feedback">
+          <p class="article-kicker">03 / 反馈循环</p>
+          <h2>玩家犹豫时，先调整空间。</h2>
+          <p>
+            在真实案例中，这一部分会把观察到的测试行为与修改前后画面放在一起：玩家停在哪里、视线看向哪里，以及哪项空间改动减少了犹豫。
+          </p>
+          <table>
+            <thead><tr><th>观察到的行为</th><th>可能原因</th><th>设计调整</th></tr></thead>
+            <tbody>
+              <tr><td>玩家在入口绕圈</td><td>出口轮廓融入废墟</td><td>清理背景并增加灯光节奏</td></tr>
+              <tr><td>玩家过早上浮</td><td>氧气看起来像即时危险</td><td>在教学阶段延后氧气消耗</td></tr>
+              <tr><td>玩家错过返程路线</td><td>地标只从一侧易读</td><td>赋予地标独特的垂直轮廓</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="takeaway">
+          <p class="article-kicker">04 / 结论</p>
+          <h2>教会玩家理解规则，而不只是记住按键。</h2>
+          <p>
+            当玩家理解输入能够带来什么结果时，按键才更容易被记住。优秀的新手教学空间会让移动规则清晰可读，先提供一次低风险成功，再要求玩家在稍高压力下重复使用它。
+          </p>
+        </section>
+      </div>
+    </div>
+  </article>
+</SiteLayout>

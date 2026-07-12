@@ -22,6 +22,10 @@
   font-synthesis: none;
 }
 
+html[lang="zh-CN"] {
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -177,6 +181,25 @@ iframe {
   color: var(--ink);
 }
 
+.site-nav .lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink);
+}
+
+.site-nav .lang-switch > span {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(201, 255, 56, 0.11);
+  color: var(--lime);
+  font-size: 0.62rem;
+  font-weight: 820;
+}
+
 .site-nav .nav-cta:hover {
   border-color: var(--lime);
   background: var(--lime);
@@ -253,6 +276,13 @@ iframe {
   font-weight: 720;
   letter-spacing: -0.07em;
   line-height: 0.93;
+}
+
+html[lang="zh-CN"] .hero h1,
+html[lang="zh-CN"] .case-title-row h1,
+html[lang="zh-CN"] .listing-hero h1,
+html[lang="zh-CN"] .article-header h1 {
+  letter-spacing: -0.045em;
 }
 
 .hero h1 span,
@@ -1743,6 +1773,10 @@ a.analysis-row:hover {
   .site-nav .nav-cta {
     margin: 4px 0 0;
     text-align: center;
+  }
+
+  .site-nav .lang-switch {
+    justify-content: center;
   }
 
   .hero {

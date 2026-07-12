@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="设计笔记 — Jadey" description="Jadey 的游戏与关卡设计拆解笔记。">
+  <section class="listing-hero section-pad">
+    <p class="eyebrow" data-reveal>设计分析 / 过程笔记</p>
+    <h1 data-reveal>让思考过程<br /><span>清晰可见。</span></h1>
+    <p class="listing-intro" data-reveal>
+      关于玩家引导、谜题结构、玩法系统与迭代的简短拆解，展示一项设计决策如何从意图变成可玩的结果。
+    </p>
+  </section>
+
+  <section class="analysis-list section-pad" aria-label="设计笔记">
+    <a class="analysis-row" href="/zh/analysis/player-guidance/" data-reveal>
+      <span class="analysis-number">01</span>
+      <div>
+        <p>关卡设计 · 阅读约 6 分钟</p>
+        <h2>不依赖教学弹窗，如何教会玩家水下移动</h2>
+        <ul><li>玩家引导</li><li>新手教学</li><li>UE5</li></ul>
+      </div>
+      <span class="analysis-arrow">→</span>
+    </a>
+    <div class="analysis-row analysis-row-muted" data-reveal>
+      <span class="analysis-number">02</span>
+      <div>
+        <p>谜题设计 · 即将推出</p>
+        <h2>构建易读的配重谜题</h2>
+        <ul><li>依赖关系图</li><li>白盒</li><li>游戏测试</li></ul>
+      </div>
+      <span class="analysis-arrow">—</span>
+    </div>
+    <div class="analysis-row analysis-row-muted" data-reveal>
+      <span class="analysis-number">03</span>
+      <div>
+        <p>技术设计 · 即将推出</p>
+        <h2>一套交互语言，多种玩法对象</h2>
+        <ul><li>可供性</li><li>反馈</li><li>架构</li></ul>
+      </div>
+      <span class="analysis-arrow">—</span>
+    </div>
+  </section>
+</SiteLayout>
