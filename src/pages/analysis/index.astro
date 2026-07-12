@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Design Notes — Jadey" description="Short game and level design breakdowns by Jadey.">
+  <section class="listing-hero section-pad">
+    <p class="eyebrow" data-reveal>Design analysis / Process notes</p>
+    <h1 data-reveal>Thinking made<br /><span>visible.</span></h1>
+    <p class="listing-intro" data-reveal>
+      Short breakdowns of player guidance, puzzle structure, systems, and iteration — written to show how a design decision moves from intent to playable result.
+    </p>
+  </section>
+
+  <section class="analysis-list section-pad" aria-label="Design notes">
+    <a class="analysis-row" href="/analysis/player-guidance/" data-reveal>
+      <span class="analysis-number">01</span>
+      <div>
+        <p>Level design · 6 min</p>
+        <h2>Teaching underwater movement without another tutorial popup</h2>
+        <ul><li>Player guidance</li><li>Onboarding</li><li>UE5</li></ul>
+      </div>
+      <span class="analysis-arrow">↗</span>
+    </a>
+    <div class="analysis-row analysis-row-muted" data-reveal>
+      <span class="analysis-number">02</span>
+      <div>
+        <p>Puzzle design · Coming next</p>
+        <h2>Building a readable counterweight puzzle</h2>
+        <ul><li>Dependency graph</li><li>Blockout</li><li>Playtest</li></ul>
+      </div>
+      <span class="analysis-arrow">—</span>
+    </div>
+    <div class="analysis-row analysis-row-muted" data-reveal>
+      <span class="analysis-number">03</span>
+      <div>
+        <p>Technical design · Coming next</p>
+        <h2>One interaction language, many gameplay objects</h2>
+        <ul><li>Affordance</li><li>Feedback</li><li>Architecture</li></ul>
+      </div>
+      <span class="analysis-arrow">—</span>
+    </div>
+  </section>
+</SiteLayout>

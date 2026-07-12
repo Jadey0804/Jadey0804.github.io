@@ -1,0 +1,32 @@
+---
+const currentPath = Astro.url.pathname;
+const isAnalysis = currentPath.startsWith('/analysis');
+---
+
+<header class="site-header" data-site-header>
+  <a class="brand" href="/" aria-label="Jadey portfolio home">
+    <span class="brand-mark" aria-hidden="true">J</span>
+    <span>Jadey</span>
+  </a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="primary-navigation"
+    data-nav-toggle
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation" data-site-nav>
+    <a href="/#work">Work</a>
+    <a href="/analysis/" aria-current={isAnalysis ? 'page' : undefined}>Design notes</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">
+      GitHub <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</header>

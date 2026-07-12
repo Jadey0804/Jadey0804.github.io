@@ -1,0 +1,28 @@
+---
+interface Props {
+  bvid: string;
+  title: string;
+  page?: number;
+}
+
+const { bvid, title, page = 1 } = Astro.props;
+const params = new URLSearchParams({
+  isOutside: 'true',
+  bvid,
+  p: String(page),
+  high_quality: '1',
+  danmaku: '0',
+  autoplay: '0',
+});
+const playerUrl = `https://player.bilibili.com/player.html?${params.toString()}`;
+---
+
+<div class="bilibili-player">
+  <iframe
+    src={playerUrl}
+    title={title}
+    loading="lazy"
+    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+    allowfullscreen
+  ></iframe>
+</div>

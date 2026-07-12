@@ -1,0 +1,86 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Teaching Underwater Movement — Jadey"
+  description="A concise level design breakdown about teaching underwater movement through space, framing, and controlled pressure."
+>
+  <article class="article-page section-pad">
+    <header class="article-header" data-reveal>
+      <a class="back-link" href="/analysis/">← Design notes</a>
+      <p class="eyebrow">Level design · Player guidance · 6 min read</p>
+      <h1>Teaching underwater movement without another tutorial popup</h1>
+      <p class="article-deck">
+        A demo breakdown of how safe space, framing, landmarks, and escalating pressure can teach a new movement model through play.
+      </p>
+      <div class="article-byline"><span>Jadey</span><span>Design note 01</span><span>Demo content</span></div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-toc" data-reveal>
+        <p>On this page</p>
+        <a href="#problem">The problem</a>
+        <a href="#sequence">Teaching sequence</a>
+        <a href="#feedback">Feedback loop</a>
+        <a href="#takeaway">Takeaway</a>
+      </aside>
+      <div class="article-body" data-reveal>
+        <section id="problem">
+          <p class="article-kicker">01 / The problem</p>
+          <h2>Three dimensions create three times the uncertainty.</h2>
+          <p>
+            On land, the floor continuously tells the player where they can stand. Underwater, the player must read depth, orientation, oxygen, and destination at the same time. A text prompt can explain the buttons, but it cannot build spatial confidence.
+          </p>
+          <blockquote>The level should answer “where can I go?” before it asks “how fast can I get there?”</blockquote>
+        </section>
+
+        <figure class="article-diagram" aria-label="Three-stage player teaching diagram">
+          <div><span>Safe</span><strong>One visible exit</strong></div>
+          <i>→</i>
+          <div><span>Test</span><strong>One vertical choice</strong></div>
+          <i>→</i>
+          <div><span>Remix</span><strong>Route + oxygen</strong></div>
+          <figcaption>Progression keeps the verb constant while adding one new decision at a time.</figcaption>
+        </figure>
+
+        <section id="sequence">
+          <p class="article-kicker">02 / Teaching sequence</p>
+          <h2>Let the camera discover the verb.</h2>
+          <p>
+            The entry space starts shallow and calm. The exit sits above the player, framed by a bright structure. Moving toward it naturally asks the player to ascend. The next chamber reverses that relationship and places the route below.
+          </p>
+          <div class="principle-grid">
+            <div><span>01</span><h3>Frame the target</h3><p>Use contrast and silhouette before UI markers.</p></div>
+            <div><span>02</span><h3>Protect the first attempt</h3><p>No oxygen failure while learning the axis.</p></div>
+            <div><span>03</span><h3>Repeat from a new angle</h3><p>Confirm understanding without repeating the exact room.</p></div>
+          </div>
+        </section>
+
+        <section id="feedback">
+          <p class="article-kicker">03 / Feedback loop</p>
+          <h2>Change the space when the player hesitates.</h2>
+          <p>
+            In a real case study, this section would pair observed playtest behaviour with before-and-after images: where players stopped, what they looked at, and which spatial change reduced hesitation.
+          </p>
+          <table>
+            <thead><tr><th>Observed behaviour</th><th>Likely cause</th><th>Design response</th></tr></thead>
+            <tbody>
+              <tr><td>Player circles the entrance</td><td>Exit silhouette blends into ruins</td><td>Clear background and add a light rhythm</td></tr>
+              <tr><td>Player surfaces too early</td><td>Oxygen reads as immediate danger</td><td>Delay depletion during onboarding</td></tr>
+              <tr><td>Player misses the return route</td><td>Landmark only reads from one side</td><td>Give it a distinct vertical profile</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="takeaway">
+          <p class="article-kicker">04 / Takeaway</p>
+          <h2>Teach the model, not only the input.</h2>
+          <p>
+            Inputs are remembered when the player understands what they enable. A good onboarding space makes the movement rule legible, gives the player a low-risk success, then asks them to reuse it under slightly more pressure.
+          </p>
+        </section>
+      </div>
+    </div>
+  </article>
+</SiteLayout>

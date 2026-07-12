@@ -1,0 +1,124 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import BilibiliPlayer from '../../components/BilibiliPlayer.astro';
+---
+
+<SiteLayout
+  title="Sunken City Case Study — Jadey"
+  description="A portfolio case study covering underwater gameplay, systemic interaction, puzzles, and level design in Unreal Engine 5."
+>
+  <article class="case-study">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/#work">← Selected work</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">Gameplay systems · Level design</p>
+          <h1>Sunken City</h1>
+          <p class="case-deck">
+            An underwater exploration prototype where traversal, oxygen pressure, interaction, and
+            environmental puzzles share one readable design language.
+          </p>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>Role</dt><dd>Gameplay Programmer<br />Level Designer</dd></div>
+          <div><dt>Engine</dt><dd>Unreal Engine 5.4.4</dd></div>
+          <div><dt>Platform</dt><dd>Windows PC</dd></div>
+          <div><dt>Status</dt><dd>Portfolio prototype</dd></div>
+        </dl>
+      </div>
+      <div class="case-hero-art ocean-visual" data-reveal>
+        <div class="visual-grid"></div>
+        <svg viewBox="0 0 1200 580" aria-hidden="true">
+          <path d="M40 420c143-148 260-248 425-216 130 25 170 122 284 61 164-87 250 15 414 163" />
+          <path d="M18 505c180-113 314-70 417-167 114-108 214 13 308 24 158 18 264 50 447 147" />
+          <circle cx="454" cy="267" r="58" />
+          <circle cx="832" cy="340" r="34" />
+        </svg>
+        <div class="case-art-copy">
+          <span>CASE STUDY / 01</span>
+          <strong>DESCEND.<br />READ.<br />SOLVE.</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="overview-title">
+      <div class="case-sidebar">
+        <p class="section-index">01 / OVERVIEW</p>
+      </div>
+      <div class="case-content" data-reveal>
+        <h2 id="overview-title">The design challenge</h2>
+        <p class="lead-copy">
+          Make underwater traversal feel unfamiliar without becoming unreadable, then teach the player
+          enough of its rules to solve physical puzzles under light resource pressure.
+        </p>
+        <div class="goal-grid">
+          <div><span>01</span><h3>Readable movement</h3><p>Use space and landmarks to teach dive, ascend, and acceleration.</p></div>
+          <div><span>02</span><h3>Systemic puzzles</h3><p>Reuse carrying, throwing, pressure, and weight instead of one-off interactions.</p></div>
+          <div><span>03</span><h3>Controlled pressure</h3><p>Let oxygen shape pacing while keeping exploration approachable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="video-title">
+      <div class="case-sidebar"><p class="section-index">02 / IN MOTION</p></div>
+      <div class="case-content" data-reveal>
+        <div class="inline-heading">
+          <h2 id="video-title">Video belongs beside the decision.</h2>
+          <p>This uses the same reusable Bilibili component as the homepage.</p>
+        </div>
+        <BilibiliPlayer bvid="BV1mfTW6vESe" title="Bilibili embed demo inside a portfolio case study" />
+        <p class="media-credit">Demo reference video — the finished case study will use your own gameplay reel.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="flow-title">
+      <div class="case-sidebar"><p class="section-index">03 / LEVEL FLOW</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="flow-title">Teach → test → remix</h2>
+        <p class="lead-copy">
+          The level introduces one verb in safety, tests it with a clear objective, then combines it with
+          oxygen pressure and object interaction.
+        </p>
+        <div class="flow-diagram" aria-label="Four-stage level flow">
+          <div><span>01</span><strong>Safe descent</strong><small>Learn vertical movement</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>02</span><strong>Visible goal</strong><small>Read the locked route</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>03</span><strong>Pressure test</strong><small>Carry under oxygen cost</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>04</span><strong>Remix</strong><small>Combine learned rules</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="iteration-title">
+      <div class="case-sidebar"><p class="section-index">04 / ITERATION</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="iteration-title">Make the change visible.</h2>
+        <p class="lead-copy">A final case study should show evidence of what changed and why. These frames demonstrate the intended presentation.</p>
+        <div class="iteration-grid">
+          <figure class="iteration-frame iteration-before">
+            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
+            <figcaption><span>Before / V01</span><strong>Goal and route competed for attention</strong></figcaption>
+          </figure>
+          <figure class="iteration-frame iteration-after">
+            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
+            <figcaption><span>After / V03</span><strong>Landmark, light, and framing align</strong></figcaption>
+          </figure>
+        </div>
+        <aside class="decision-callout">
+          <span>Design decision</span>
+          <p>Move the objective above the horizon line, reduce competing silhouettes, and make the return path reuse the same landmark from a new angle.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="next-case section-pad" data-reveal>
+      <p class="section-index">NEXT</p>
+      <a href="/analysis/player-guidance/">
+        <span>Read the related design note</span>
+        <strong>Teaching movement through space <i>↗</i></strong>
+      </a>
+    </section>
+  </article>
+</SiteLayout>
