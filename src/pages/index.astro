@@ -13,20 +13,9 @@ const capabilities = [
 ---
 
 <SiteLayout>
-  <section class="hero section-pad">
+  <section class="hero hero-minimal section-pad">
     <div class="hero-copy" data-reveal>
       <p class="eyebrow"><span class="live-dot"></span> Open to gameplay & level design roles</p>
-      <h1>
-        I build systems that <span>feel good</span> and levels that teach through play.
-      </h1>
-      <p class="hero-intro">
-        Technical game designer and gameplay programmer working in Unreal Engine 5 — bridging
-        player-facing systems, readable spaces, and rapid iteration.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#work">Explore selected work</a>
-        <a class="button button-quiet" href="/projects/sunken-city/">View case study <span>↗</span></a>
-      </div>
       <dl class="hero-meta">
         <div>
           <dt>Focus</dt>
@@ -41,55 +30,6 @@ const capabilities = [
           <dd>United Kingdom</dd>
         </div>
       </dl>
-    </div>
-
-    <div class="hero-map" data-reveal aria-label="Stylised top-down level flow diagram">
-      <div class="map-toolbar">
-        <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span>LEVEL_FLOW / 01</span>
-        <span>PLAYTEST_07</span>
-      </div>
-      <div class="map-canvas">
-        <svg viewBox="0 0 660 640" role="img" aria-labelledby="map-title map-description">
-          <title id="map-title">Top-down puzzle level flow</title>
-          <desc id="map-description">A path moves from onboarding through an exploration loop and puzzle gate to a reward.</desc>
-          <defs>
-            <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-              <path d="M28 0H0V28" fill="none" stroke="currentColor" stroke-opacity=".08" />
-            </pattern>
-            <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#c9ff38" />
-              <stop offset="1" stop-color="#67a6ff" />
-            </linearGradient>
-          </defs>
-          <rect width="660" height="640" fill="url(#grid)" />
-          <path class="map-zone" d="M68 475 174 390l118 22 49 98-61 80-141-5Z" />
-          <path class="map-zone" d="M245 215 376 138l152 44 32 133-89 80-168-35Z" />
-          <path class="map-zone map-zone-focus" d="m383 432 111-37 91 68-31 108-137 18-56-82Z" />
-          <path class="map-route-shadow" d="M114 528c84-3 72-92 151-92 65 0 36-179 118-193 78-13 86 91 124 122 36 30-16 84-54 120" />
-          <path class="map-route" d="M114 528c84-3 72-92 151-92 65 0 36-179 118-193 78-13 86 91 124 122 36 30-16 84-54 120" />
-          <circle class="map-node map-node-start" cx="114" cy="528" r="14" />
-          <circle class="map-node" cx="266" cy="436" r="11" />
-          <circle class="map-node" cx="383" cy="243" r="11" />
-          <circle class="map-node map-node-gate" cx="507" cy="365" r="16" />
-          <circle class="map-node map-node-end" cx="453" cy="485" r="14" />
-          <path class="sightline" d="m381 243 127 122M381 243l83-69M507 365l86-76" />
-        </svg>
-        <div class="map-label label-entry"><span>01</span> Onboarding</div>
-        <div class="map-label label-loop"><span>02</span> Explore loop</div>
-        <div class="map-label label-gate"><span>03</span> Puzzle gate</div>
-        <div class="map-label label-reward"><span>04</span> Reward</div>
-        <div class="map-readout">
-          <span>Critical path</span>
-          <strong>04:20</strong>
-          <span>Optional space</span>
-          <strong>38%</strong>
-        </div>
-      </div>
-      <div class="map-caption">
-        <p>Design intent</p>
-        <p>Teach → test → remix</p>
-      </div>
     </div>
   </section>
 

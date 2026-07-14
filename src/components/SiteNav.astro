@@ -7,8 +7,26 @@ const chinesePath = isZh ? currentPath : `/zh${currentPath}`;
 const alternatePath = isZh ? englishPath : chinesePath;
 const isAnalysis = currentPath.startsWith(`${base}/analysis`);
 const labels = isZh
-  ? { work: '项目', notes: '设计笔记', about: '关于', home: 'Jadey 作品集首页', language: '切换到英文', menu: '打开导航', primary: '主导航' }
-  : { work: 'Work', notes: 'Design notes', about: 'About', home: 'Jadey portfolio home', language: 'Switch to Chinese', menu: 'Open navigation', primary: 'Primary navigation' };
+  ? {
+      work: '项目',
+      notes: '设计笔记',
+      about: '关于',
+      resume: '简历',
+      home: 'Jadey 作品集首页',
+      language: '切换到英文',
+      menu: '打开导航',
+      primary: '主导航',
+    }
+  : {
+      work: 'Work',
+      notes: 'Design notes',
+      about: 'About',
+      resume: 'Resume',
+      home: 'Jadey portfolio home',
+      language: 'Switch to Chinese',
+      menu: 'Open navigation',
+      primary: 'Primary navigation',
+    };
 ---
 
 <header class="site-header" data-site-header>
@@ -30,20 +48,25 @@ const labels = isZh
   </button>
 
   <nav id="primary-navigation" class="site-nav" aria-label={labels.primary} data-site-nav>
-    <a href={`${base}/#work`}>{labels.work}</a>
-    <a href={`${base}/analysis/`} aria-current={isAnalysis ? 'page' : undefined}>{labels.notes}</a>
-    <a href={`${base}/#about`}>{labels.about}</a>
-    <a
-      class="lang-switch"
-      href={alternatePath}
-      hreflang={isZh ? 'en' : 'zh-CN'}
-      lang={isZh ? 'en' : 'zh-CN'}
-      aria-label={labels.language}
-    >
-      <span aria-hidden="true">文</span>{isZh ? 'EN' : '中文'}
-    </a>
-    <a class="nav-cta" href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">
-      GitHub <span aria-hidden="true">↗</span>
-    </a>
+    <div class="nav-primary">
+      <a href={`${base}/#work`}>{labels.work}</a>
+      <a href={`${base}/analysis/`} aria-current={isAnalysis ? 'page' : undefined}>{labels.notes}</a>
+      <a href={`${base}/#about`}>{labels.about}</a>
+      <a href="/Yujie-Liang-Resume.pdf" target="_blank" rel="noreferrer">{labels.resume}</a>
+    </div>
+    <div class="nav-actions">
+      <a
+        class="lang-switch"
+        href={alternatePath}
+        hreflang={isZh ? 'en' : 'zh-CN'}
+        lang={isZh ? 'en' : 'zh-CN'}
+        aria-label={labels.language}
+      >
+        <span aria-hidden="true">文</span>{isZh ? 'EN' : '中文'}
+      </a>
+      <a class="nav-cta" href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </nav>
 </header>
