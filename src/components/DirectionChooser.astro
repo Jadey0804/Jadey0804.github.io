@@ -9,6 +9,8 @@ const base = isZh ? '/zh' : '';
 const copy = isZh
   ? {
       title: '选择作品集方向',
+      introTitle: 'Hi！我是梁钰洁，游戏工程硕士在读',
+      introBody: '关注玩法系统从设计、原型到工程实现，正在寻找游戏行业实习机会。',
       designTitle: '玩法策划',
       designAlt: 'Gameplay Design',
       designFocus: '关卡、机制、战斗',
@@ -20,6 +22,8 @@ const copy = isZh
     }
   : {
       title: 'Choose a portfolio direction',
+      introTitle: 'Hi! I’m Jade Liang, a master’s student in Game Engineering.',
+      introBody: 'I focus on gameplay systems from design and prototyping through to engineering implementation, and I’m currently seeking an internship in the games industry.',
       designTitle: 'Gameplay Design',
       designAlt: '玩法策划',
       designFocus: 'Levels, systems, combat',
@@ -31,8 +35,14 @@ const copy = isZh
     };
 ---
 
-<section class="portfolio-gateway" aria-labelledby="gateway-title">
-  <h1 id="gateway-title" class="sr-only">{copy.title}</h1>
+<div class="landing-stage">
+  <section class="landing-profile" aria-labelledby="profile-title" data-reveal>
+    <h1 id="profile-title">{copy.introTitle}</h1>
+    <p>{copy.introBody}</p>
+  </section>
+
+  <section class="portfolio-gateway" aria-labelledby="gateway-title">
+    <h2 id="gateway-title" class="sr-only">{copy.title}</h2>
 
   <a class="gateway-card gateway-client" href={`${base}/client/`} data-reveal>
     <div class="gateway-art gateway-code-art" aria-hidden="true">
@@ -81,4 +91,5 @@ const copy = isZh
       <span class="gateway-link">{copy.designCta} <span aria-hidden="true">↗</span></span>
     </div>
   </a>
-</section>
+  </section>
+</div>
