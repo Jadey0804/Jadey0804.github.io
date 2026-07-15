@@ -1,0 +1,84 @@
+---
+interface Props {
+  locale: 'en' | 'zh';
+}
+
+const { locale } = Astro.props;
+const isZh = locale === 'zh';
+const base = isZh ? '/zh' : '';
+const copy = isZh
+  ? {
+      title: '选择作品集方向',
+      designTitle: '玩法策划',
+      designAlt: 'Gameplay Design',
+      designFocus: '关卡、机制、战斗',
+      designCta: '查看策划作品',
+      clientTitle: '游戏客户端开发',
+      clientAlt: 'Client Development',
+      clientFocus: 'UE5、C++、工具开发',
+      clientCta: '查看程序作品',
+    }
+  : {
+      title: 'Choose a portfolio direction',
+      designTitle: 'Gameplay Design',
+      designAlt: '玩法策划',
+      designFocus: 'Levels, systems, combat',
+      designCta: 'View design work',
+      clientTitle: 'Client Development',
+      clientAlt: '游戏客户端开发',
+      clientFocus: 'UE5, C++, tools',
+      clientCta: 'View development work',
+    };
+---
+
+<section class="portfolio-gateway" aria-labelledby="gateway-title">
+  <h1 id="gateway-title" class="sr-only">{copy.title}</h1>
+
+  <a class="gateway-card gateway-client" href={`${base}/client/`} data-reveal>
+    <div class="gateway-art gateway-code-art" aria-hidden="true">
+      <div class="code-window">
+        <span class="code-line line-long"></span>
+        <span class="code-line line-medium"></span>
+        <span class="code-line line-short"></span>
+        <span class="code-line line-long"></span>
+        <span class="code-line line-medium"></span>
+      </div>
+      <div class="code-module module-one">UE5</div>
+      <div class="code-module module-two">C++</div>
+      <div class="code-module module-three">TOOLS</div>
+    </div>
+    <div class="gateway-content">
+      <p class="gateway-index">01 / CODE</p>
+      <h2>
+        <span>{copy.clientTitle}</span>
+        <small>{copy.clientAlt}</small>
+      </h2>
+      <p>{copy.clientFocus}</p>
+      <span class="gateway-link">{copy.clientCta} <span aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+
+  <a class="gateway-card gateway-design" href={`${base}/design/`} data-reveal>
+    <div class="gateway-art gateway-level-art" aria-hidden="true">
+      <svg viewBox="0 0 800 720">
+        <path d="M86 570c108-84 132-208 249-229 99-18 143 72 220 22 64-41 91-113 171-150" />
+        <path d="M61 623c126-63 217-48 300-133 66-68 114 5 190-18 72-22 112-92 185-120" />
+        <circle cx="337" cy="341" r="38" />
+        <circle cx="557" cy="363" r="23" />
+        <circle cx="174" cy="521" r="17" />
+      </svg>
+      <span class="gateway-node node-one"></span>
+      <span class="gateway-node node-two"></span>
+      <span class="gateway-node node-three"></span>
+    </div>
+    <div class="gateway-content">
+      <p class="gateway-index">02 / DESIGN</p>
+      <h2>
+        <span>{copy.designTitle}</span>
+        <small>{copy.designAlt}</small>
+      </h2>
+      <p>{copy.designFocus}</p>
+      <span class="gateway-link">{copy.designCta} <span aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+</section>

@@ -14,8 +14,21 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const isZh = Astro.url.pathname === '/zh/' || Astro.url.pathname.startsWith('/zh/');
 const lang = isZh ? 'zh-CN' : 'en';
-const englishPath = isZh ? Astro.url.pathname.replace(/^\/zh/, '') || '/' : Astro.url.pathname;
-const chinesePath = isZh ? Astro.url.pathname : `/zh${Astro.url.pathname}`;
+const base = isZh ? '/zh' : '';
+const isLegacyDesignRoute =
+  Astro.url.pathname.startsWith(`${base}/analysis`) || Astro.url.pathname.startsWith(`${base}/projects`);
+const direction = Astro.url.pathname.startsWith(`${base}/client`)
+  ? 'client'
+  : Astro.url.pathname.startsWith(`${base}/design`) || isLegacyDesignRoute
+    ? 'design'
+    : null;
+const switchHref = direction === 'design' ? `${base}/client/` : `${base}/design/`;
+const switchLabel = direction === 'design'
+  ? isZh ? '查看客户端开发作品集' : 'View client development portfolio'
+  : isZh ? '查看玩法策划作品集' : 'View gameplay design portfolio';
+const isNotFound = Astro.url.pathname === '/404' || Astro.url.pathname === '/404/' || Astro.url.pathname === '/404.html';
+const englishPath = isNotFound ? '/' : isZh ? Astro.url.pathname.replace(/^\/zh/, '') || '/' : Astro.url.pathname;
+const chinesePath = isNotFound ? '/zh/' : isZh ? Astro.url.pathname : `/zh${Astro.url.pathname}`;
 const englishUrl = new URL(englishPath, Astro.site);
 const chineseUrl = new URL(chinesePath, Astro.site);
 const year = new Date().getFullYear();
@@ -47,6 +60,12 @@ const year = new Date().getFullYear();
       <main id="main-content">
         <slot />
       </main>
+      {direction && (
+        <aside class="direction-switch section-pad" aria-label={isZh ? '切换作品集方向' : 'Switch portfolio direction'}>
+          <span>{isZh ? '切换作品集方向' : 'Switch portfolio direction'}</span>
+          <a href={switchHref}>{switchLabel} <span aria-hidden="true">↗</span></a>
+        </aside>
+      )}
       <footer class="site-footer">
         <div>
           <span class="footer-mark" aria-hidden="true"></span>

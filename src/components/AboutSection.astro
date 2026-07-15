@@ -1,0 +1,67 @@
+---
+interface Props {
+  locale: 'en' | 'zh';
+  context?: 'general' | 'design' | 'client';
+}
+
+const { locale, context = 'general' } = Astro.props;
+const isZh = locale === 'zh';
+
+const content = {
+  en: {
+    general: {
+      title: 'A developer who can follow an idea into the engine.',
+      body: 'I work between design and implementation: prototyping rules, putting them in front of players, and improving both the system and the level through iteration.',
+      capabilities: ['UE5 gameplay systems', 'C++ & Blueprints', 'Level scripting', 'Puzzle design', 'Rapid prototyping', 'Playtest iteration'],
+    },
+    design: {
+      title: 'Turning rules, spaces, and feedback into playable experiences.',
+      body: 'My design work focuses on readable levels, clear mechanics, combat encounters, and fast iteration inside Unreal Engine 5.',
+      capabilities: ['Level design', 'Gameplay design', 'Combat encounters', 'Puzzle design', 'UE5 prototyping', 'Playtest iteration'],
+    },
+    client: {
+      title: 'Turning gameplay needs into clear, maintainable systems.',
+      body: 'My development work focuses on Unreal Engine gameplay, C++, Blueprint integration, tools, graphics fundamentals, and practical debugging.',
+      capabilities: ['UE5 gameplay', 'C++', 'Blueprint integration', 'Tool development', 'Rendering fundamentals', 'Debugging'],
+    },
+  },
+  zh: {
+    general: {
+      title: '一名能把设计想法真正带进引擎的开发者。',
+      body: '我在设计与实现之间工作：快速验证规则，让玩家亲自体验，再根据测试结果同时调整系统与关卡。',
+      capabilities: ['UE5 玩法系统', 'C++ 与蓝图', '关卡脚本', '谜题设计', '快速原型', '测试与迭代'],
+    },
+    design: {
+      title: '把规则、空间与反馈组织成可玩的体验。',
+      body: '我的策划作品聚焦易读的关卡、清晰的机制、战斗遭遇，以及在 Unreal Engine 5 中快速验证与迭代。',
+      capabilities: ['关卡设计', '玩法设计', '战斗遭遇', '谜题设计', 'UE5 原型', '测试与迭代'],
+    },
+    client: {
+      title: '把玩法需求落成清晰、可维护的系统。',
+      body: '我的开发作品聚焦 Unreal Engine 玩法、C++、蓝图协作、工具开发、图形学基础与实际调试。',
+      capabilities: ['UE5 玩法开发', 'C++', '蓝图协作', '工具开发', '渲染基础', '调试与分析'],
+    },
+  },
+} as const;
+
+const copy = content[locale][context];
+---
+
+<section id="about" class="about-section section-pad" aria-labelledby="about-title">
+  <div class="about-copy" data-reveal>
+    <p class="section-index">{isZh ? '关于' : 'ABOUT'}</p>
+    <h2 id="about-title">{copy.title}</h2>
+    <p>{copy.body}</p>
+    <a class="text-link" href="mailto:hello@example.com">
+      {isZh ? '与我联系' : 'Start a conversation'} <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <div class="capability-panel" data-reveal>
+    <p class="mini-label">{isZh ? '能力方向' : 'Capabilities'}</p>
+    <ul>
+      {copy.capabilities.map((capability, index) => (
+        <li><span>{String(index + 1).padStart(2, '0')}</span>{capability}</li>
+      ))}
+    </ul>
+  </div>
+</section>

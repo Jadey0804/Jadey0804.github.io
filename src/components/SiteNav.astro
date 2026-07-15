@@ -2,35 +2,52 @@
 const currentPath = Astro.url.pathname;
 const isZh = currentPath === '/zh/' || currentPath.startsWith('/zh/');
 const base = isZh ? '/zh' : '';
-const englishPath = isZh ? currentPath.replace(/^\/zh/, '') || '/' : currentPath;
-const chinesePath = isZh ? currentPath : `/zh${currentPath}`;
+const isNotFound = currentPath === '/404' || currentPath === '/404/' || currentPath === '/404.html';
+const englishPath = isNotFound ? '/' : isZh ? currentPath.replace(/^\/zh/, '') || '/' : currentPath;
+const chinesePath = isNotFound ? '/zh/' : isZh ? currentPath : `/zh${currentPath}`;
 const alternatePath = isZh ? englishPath : chinesePath;
-const isAnalysis = currentPath.startsWith(`${base}/analysis`);
-const labels = isZh
+const isLegacyDesignRoute =
+  currentPath.startsWith(`${base}/analysis`) || currentPath.startsWith(`${base}/projects`);
+const direction = currentPath.startsWith(`${base}/client`)
+  ? 'client'
+  : currentPath.startsWith(`${base}/design`) || isLegacyDesignRoute
+    ? 'design'
+    : null;
+const siteHome = `${base}/`;
+const directionHome = direction ? `${base}/${direction}/` : `${base}/`;
+const showDirectionNav = direction !== null;
+const isNotesPage = currentPath.includes('/analysis');
+const isProjectPage = currentPath.includes('/projects/');
+
+const common = isZh
   ? {
       work: '项目',
-      notes: '设计笔记',
       about: '关于',
-      resume: '简历',
       home: 'Jadey 作品集首页',
       language: '切换到英文',
       menu: '打开导航',
       primary: '主导航',
     }
   : {
-      work: 'Work',
-      notes: 'Design notes',
+      work: 'Projects',
       about: 'About',
-      resume: 'Resume',
       home: 'Jadey portfolio home',
       language: 'Switch to Chinese',
       menu: 'Open navigation',
       primary: 'Primary navigation',
     };
+
+const directionLabels = direction === 'client'
+  ? isZh
+    ? { notes: '技术笔记', resume: '客户端版简历' }
+    : { notes: 'Technical notes', resume: 'Client résumé' }
+  : isZh
+    ? { notes: '设计笔记', resume: '策划版简历' }
+    : { notes: 'Design notes', resume: 'Design résumé' };
 ---
 
-<header class="site-header" data-site-header>
-  <a class="brand" href={`${base}/`} aria-label={labels.home}>
+<header class:list={['site-header', { 'site-header-landing': !showDirectionNav }]} data-site-header>
+  <a class="brand" href={siteHome} aria-label={common.home}>
     <span class="brand-mark" aria-hidden="true">J</span>
     <span class="brand-wordmark">
       <span>Jadey</span>
@@ -38,38 +55,56 @@ const labels = isZh
     </span>
   </a>
 
-  <button
-    class="nav-toggle"
-    type="button"
-    aria-label={labels.menu}
-    aria-expanded="false"
-    aria-controls="primary-navigation"
-    data-nav-toggle
-  >
-    <span></span>
-    <span></span>
-  </button>
+  {showDirectionNav ? (
+    <>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label={common.menu}
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-nav-toggle
+      >
+        <span></span>
+        <span></span>
+      </button>
 
-  <nav id="primary-navigation" class="site-nav" aria-label={labels.primary} data-site-nav>
-    <div class="nav-primary">
-      <a href={`${base}/#work`}>{labels.work}</a>
-      <a href={`${base}/analysis/`} aria-current={isAnalysis ? 'page' : undefined}>{labels.notes}</a>
-      <a href={`${base}/#about`}>{labels.about}</a>
-      <a href="/Yujie-Liang-Resume.pdf" target="_blank" rel="noreferrer">{labels.resume}</a>
-    </div>
-    <div class="nav-actions">
+      <nav id="primary-navigation" class="site-nav" aria-label={common.primary} data-site-nav>
+        <div class="nav-primary">
+          <a href={`${directionHome}#work`} aria-current={isProjectPage ? 'page' : undefined}>{common.work}</a>
+          <a href={`${directionHome}#notes`} aria-current={isNotesPage ? 'page' : undefined}>{directionLabels.notes}</a>
+          <a href={`${directionHome}#about`}>{common.about}</a>
+          <a href="/Yujie-Liang-Resume.pdf" target="_blank" rel="noreferrer">{directionLabels.resume}</a>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="lang-switch"
+            href={alternatePath}
+            hreflang={isZh ? 'en' : 'zh-CN'}
+            lang={isZh ? 'en' : 'zh-CN'}
+            aria-label={common.language}
+          >
+            <span aria-hidden="true">文</span>{isZh ? 'EN' : '中文'}
+          </a>
+          {direction === 'client' && (
+            <a class="nav-cta" href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
+      </nav>
+    </>
+  ) : (
+    <div class="landing-actions">
       <a
         class="lang-switch"
         href={alternatePath}
         hreflang={isZh ? 'en' : 'zh-CN'}
         lang={isZh ? 'en' : 'zh-CN'}
-        aria-label={labels.language}
+        aria-label={common.language}
       >
         <span aria-hidden="true">文</span>{isZh ? 'EN' : '中文'}
       </a>
-      <a class="nav-cta" href="https://github.com/Jadey0804" target="_blank" rel="noreferrer">
-        GitHub <span aria-hidden="true">↗</span>
-      </a>
     </div>
-  </nav>
+  )}
 </header>

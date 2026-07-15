@@ -1,0 +1,164 @@
+---
+import AboutSection from './AboutSection.astro';
+import BilibiliPlayer from './BilibiliPlayer.astro';
+
+interface Props {
+  locale: 'en' | 'zh';
+}
+
+const { locale } = Astro.props;
+const isZh = locale === 'zh';
+const base = isZh ? '/zh' : '';
+const copy = isZh
+  ? {
+      eyebrow: '玩法策划作品集',
+      title: '关卡、机制与战斗。',
+      intro: '用可玩的原型、关卡案例与设计拆解，展示从规则构想到测试迭代的完整过程。',
+      focus: '方向',
+      focusValue: '玩法策划 / 关卡设计',
+      tools: '工具',
+      toolsValue: 'UE5 · Blueprint · C++',
+      reelIndex: '01 / 实机展示',
+      reelDescription: '直接在案例页播放视频，让玩法、节奏与空间设计更快被理解。',
+      reelLabel: '嵌入演示',
+      reelTitle: '直接播放 Bilibili 视频',
+      reelBody: '响应式 16:9 播放器，支持全屏与延迟加载。之后只需替换 BVID 即可使用自己的展示视频。',
+      reelFeatures: ['案例页内直接播放', '支持桌面端与移动端', '替换一个 BVID 即可更新'],
+      mediaCredit: '当前使用外部 UE5 白盒参考视频演示，后续替换为个人作品视频。',
+      workIndex: '02 / 策划项目',
+      workTitle: '用可玩的成果说明设计判断。',
+      workDescription: '当前先集中展示最完整的 UE5 玩法与关卡案例。',
+      projectLabel: '重点项目案例',
+      projectType: '玩法系统 · 关卡设计',
+      projectTitle: '沉没之城',
+      projectBody: '一款第三人称水下探索游戏，结合移动、氧气压力、系统性交互、环境谜题与鱼群 AI。',
+      caseLink: '阅读项目案例',
+      notesIndex: '03 / 设计笔记',
+      notesTitle: '展示思考过程，而不只是最终结果。',
+      notesDescription: '用简短拆解，把设计决策转化为可见证据。',
+      notes: [
+        ['关卡设计 · 6 分钟', '不依赖教学弹窗，如何教会玩家水下移动', '通过安全空间、构图、地标与逐步增加的压力，让关卡本身完成教学。'],
+        ['谜题设计 · 草稿', '构建易读的配重谜题', '从依赖关系图到白盒，再到游戏测试检查点。'],
+        ['技术设计 · 草稿', '一套交互语言，多种玩法对象', '保持面向玩家的规则简单，同时让实现具有扩展性。'],
+      ],
+    }
+  : {
+      eyebrow: 'Gameplay Design Portfolio',
+      title: 'Levels, systems, and combat.',
+      intro: 'Playable prototypes, level case studies, and concise breakdowns show the full path from a rule to playtest iteration.',
+      focus: 'Focus',
+      focusValue: 'Gameplay / Level Design',
+      tools: 'Tools',
+      toolsValue: 'UE5 · Blueprint · C++',
+      reelIndex: '01 / SHOWREEL',
+      reelDescription: 'Play video inside the case study so gameplay, pacing, and spatial decisions are understood quickly.',
+      reelLabel: 'Embed demo',
+      reelTitle: 'Native Bilibili playback',
+      reelBody: 'A responsive 16:9 player with fullscreen and lazy loading. Replace one BVID later to use your own reel.',
+      reelFeatures: ['Plays inside the case study', 'Works on desktop and mobile', 'Updated through one BVID'],
+      mediaCredit: 'This demo currently uses an external UE5 whitebox reference video and will be replaced with personal work.',
+      workIndex: '02 / DESIGN PROJECTS',
+      workTitle: 'Playable proof for each design decision.',
+      workDescription: 'The current portfolio starts with the most complete UE5 gameplay and level-design case study.',
+      projectLabel: 'Featured case study',
+      projectType: 'Gameplay systems · Level design',
+      projectTitle: 'Sunken City',
+      projectBody: 'A third-person underwater exploration game combining traversal, oxygen pressure, systemic interaction, environmental puzzles, and fish-school AI.',
+      caseLink: 'Read the case study',
+      notesIndex: '03 / DESIGN NOTES',
+      notesTitle: 'Show the thinking, not only the finish.',
+      notesDescription: 'Short breakdowns turn design decisions into visible evidence.',
+      notes: [
+        ['Level design · 6 min', 'Teaching underwater movement without another tutorial popup', 'Safe spaces, framing, landmarks, and escalating pressure let the level do the teaching.'],
+        ['Puzzle design · Draft', 'Building a readable counterweight puzzle', 'From dependency diagram to blockout and playtest checkpoints.'],
+        ['Technical design · Draft', 'One interaction language, many gameplay objects', 'Keep the player-facing rule simple while the implementation remains extensible.'],
+      ],
+    };
+---
+
+<section class="direction-hero direction-design section-pad">
+  <div data-reveal>
+    <p class="eyebrow"><span class="live-dot"></span>{copy.eyebrow}</p>
+    <h1>{copy.title}</h1>
+    <p class="direction-intro">{copy.intro}</p>
+    <dl class="hero-meta">
+      <div><dt>{copy.focus}</dt><dd>{copy.focusValue}</dd></div>
+      <div><dt>{copy.tools}</dt><dd>{copy.toolsValue}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="reel-section section-pad" aria-label={copy.reelIndex}>
+  <div class="section-heading" data-reveal>
+    <p class="section-index">{copy.reelIndex}</p>
+    <div><p>{copy.reelDescription}</p></div>
+  </div>
+  <div class="reel-layout" data-reveal>
+    <div>
+      <BilibiliPlayer bvid="BV1mfTW6vESe" title={copy.reelTitle} />
+      <p class="media-credit">{copy.mediaCredit}</p>
+    </div>
+    <aside class="reel-notes">
+      <p class="mini-label">{copy.reelLabel}</p>
+      <h3>{copy.reelTitle}</h3>
+      <p>{copy.reelBody}</p>
+      <ul class="feature-list">
+        {copy.reelFeatures.map((feature, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{feature}</li>)}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section id="work" class="work-section section-pad" aria-labelledby="design-work-title">
+  <div class="section-heading" data-reveal>
+    <p class="section-index">{copy.workIndex}</p>
+    <div>
+      <h2 id="design-work-title">{copy.workTitle}</h2>
+      <p>{copy.workDescription}</p>
+    </div>
+  </div>
+  <div class="project-grid project-grid-single">
+    <article class="project-card project-featured" data-reveal>
+      <a class="project-visual ocean-visual" href={`${base}/projects/sunken-city/`} aria-label={copy.caseLink}>
+        <div class="visual-grid"></div>
+        <svg viewBox="0 0 800 520" aria-hidden="true">
+          <path d="M92 346c77-84 112-163 210-170 76-6 105 54 173 26 85-35 139 31 229 119" />
+          <path d="M74 397c93-69 188-45 248-111 58-64 106-3 160 9 77 18 138 40 247 109" />
+          <circle cx="306" cy="223" r="40" />
+          <circle cx="556" cy="278" r="24" />
+        </svg>
+        <div class="visual-tag">{copy.projectLabel}</div>
+        <div class="visual-title">SUNKEN<br />CITY</div>
+        <div class="visual-coordinate">UE5 / 5.4.4</div>
+      </a>
+      <div class="project-body">
+        <div class="project-topline"><p>{copy.projectType}</p><span>2026</span></div>
+        <h3><a href={`${base}/projects/sunken-city/`}>{copy.projectTitle}</a></h3>
+        <p>{copy.projectBody}</p>
+        <ul class="tag-list"><li>Unreal Engine 5</li><li>Blueprint</li><li>C++</li><li>{isZh ? '谜题设计' : 'Puzzle design'}</li></ul>
+        <a class="text-link" href={`${base}/projects/sunken-city/`}>{copy.caseLink} <span>↗</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="notes" class="notes-section section-pad" aria-labelledby="design-notes-title">
+  <div class="section-heading" data-reveal>
+    <p class="section-index">{copy.notesIndex}</p>
+    <div>
+      <h2 id="design-notes-title">{copy.notesTitle}</h2>
+      <p>{copy.notesDescription}</p>
+    </div>
+  </div>
+  <div class="notes-grid">
+    {copy.notes.map((note, index) => (
+      <a class:list={['note-card', { 'note-card-featured': index === 0 }]} href={index === 0 ? `${base}/analysis/player-guidance/` : `${base}/analysis/`} data-reveal>
+        <div class="note-number">{String(index + 1).padStart(2, '0')}</div>
+        <div><p class="mini-label">{note[0]}</p><h3>{note[1]}</h3><p>{note[2]}</p></div>
+        <span class="note-arrow">↗</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<AboutSection locale={locale} context="design" />
