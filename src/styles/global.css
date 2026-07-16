@@ -392,14 +392,14 @@ iframe {
 
 @media (hover: hover) and (min-width: 821px) {
   .portfolio-gateway .gateway-card:hover {
-    flex-grow: 1.3;
+    flex-grow: 1.15;
     border-color: var(--accent-ink);
     box-shadow: 0 30px 76px rgba(31, 88, 85, 0.22);
     transform: translateY(-5px);
   }
 
   .portfolio-gateway:hover .gateway-card:not(:hover) {
-    flex-grow: 0.7;
+    flex-grow: 0.85;
     filter: blur(2.4px) saturate(0.55);
     opacity: 0.42;
     transform: scale(0.97);
@@ -536,18 +536,22 @@ iframe {
 
 .gateway-content h2 {
   margin: 0;
-  font-size: clamp(2.7rem, 4.25vw, 4.9rem);
+  font-size: clamp(2.15rem, 3vw, 3.5rem);
   font-weight: 760;
   letter-spacing: -0.06em;
   line-height: 0.95;
 }
 
 .landing-stage .gateway-content h2 {
-  font-size: clamp(2.55rem, min(4.25vw, 7.2svh), 4.9rem);
+  font-size: clamp(2.15rem, min(3vw, 5.4svh), 3.5rem);
 }
 
 html[lang="zh-CN"] .gateway-content h2 {
   letter-spacing: -0.035em;
+}
+
+html[lang="zh-CN"] .gateway-content h2 > span {
+  white-space: nowrap;
 }
 
 .gateway-content h2 span,
@@ -620,7 +624,7 @@ html[lang="zh-CN"] .gateway-content h2 {
 .direction-hero h1 {
   max-width: 1050px;
   margin: 28px 0 30px;
-  font-size: clamp(4rem, 8vw, 8.4rem);
+  font-size: clamp(3rem, 5vw, 5.4rem);
   font-weight: 720;
   letter-spacing: -0.075em;
   line-height: 0.88;
@@ -2282,7 +2286,7 @@ a.analysis-row:hover {
   }
 
   .direction-hero h1 {
-    font-size: clamp(3.7rem, 13vw, 6.2rem);
+    font-size: clamp(2.8rem, 9vw, 4.6rem);
   }
 
   .site-header {
@@ -2484,7 +2488,7 @@ a.analysis-row:hover {
   }
 
   .gateway-content h2 {
-    font-size: clamp(2.45rem, 12vw, 3.7rem);
+    font-size: clamp(2.1rem, 9.5vw, 3rem);
   }
 
   .gateway-content > p:not(.gateway-index) {
@@ -2502,7 +2506,7 @@ a.analysis-row:hover {
   }
 
   .direction-hero h1 {
-    font-size: clamp(3.05rem, 14vw, 4.4rem);
+    font-size: clamp(2.55rem, 10.5vw, 3.6rem);
   }
 
   .direction-switch {
