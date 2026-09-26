@@ -72,8 +72,10 @@ const directionLabels = direction === 'client'
       <nav id="primary-navigation" class="site-nav" aria-label={common.primary} data-site-nav>
         <div class="nav-primary">
           <a href={`${directionHome}#work`} aria-current={isProjectPage ? 'page' : undefined}>{common.work}</a>
-          <a href={`${directionHome}#notes`} aria-current={isNotesPage ? 'page' : undefined}>{directionLabels.notes}</a>
-          <a href={`${directionHome}#about`}>{common.about}</a>
+          {direction === 'client' && (
+            <a href={`${directionHome}#notes`} aria-current={isNotesPage ? 'page' : undefined}>{directionLabels.notes}</a>
+          )}
+          {direction === 'client' && <a href={`${directionHome}#about`}>{common.about}</a>}
           <a href="/Yujie-Liang-Resume.pdf" target="_blank" rel="noreferrer">{directionLabels.resume}</a>
         </div>
         <div class="nav-actions">

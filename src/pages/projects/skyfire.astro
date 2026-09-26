@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="SkyFire Uprising Case Study — Jadey"
+  description="The SkyFire Uprising team project and Jadey's contribution to its radar and game UI."
+>
+  <article class="case-study">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/design/#work">← Design projects</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">Team project · UI design and implementation</p>
+          <h1>SkyFire Uprising</h1>
+          <p class="case-deck">An aerial-combat game featuring machine guns, homing missiles, and varied flight environments. My primary contribution was the radar and other in-game UI.</p>
+          <a class="text-link case-github-link" href="https://github.com/pobertt/Skyfire_Uprising_Level4" target="_blank" rel="noreferrer">View team GitHub repository <span>↗</span></a>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>Project</dt><dd>Team project</dd></div>
+          <div><dt>My role</dt><dd>Radar UI<br />In-game UI</dd></div>
+          <div><dt>Engine</dt><dd>Unreal Engine</dd></div>
+          <div><dt>Genre</dt><dd>Aerial combat</dd></div>
+        </dl>
+      </div>
+      <div class="case-hero-art skyfire-visual" data-reveal>
+        <div class="visual-grid"></div>
+        <div class="radar-display" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="case-art-copy"><span>IMAGE PLACEHOLDER / 03</span><strong>SCAN.<br />LOCK.<br />ENGAGE.</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="contribution-title">
+      <div class="case-sidebar"><p class="section-index">01 / CONTRIBUTION</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="contribution-title">Keep combat information readable.</h2>
+        <p class="lead-copy">My work focused on arranging the radar and other flight-combat UI into a clear information hierarchy so players could quickly read targets, direction, and current status.</p>
+        <div class="goal-grid">
+          <div><span>01</span><h3>Radar UI</h3><p>Designed and implemented the radar interface to communicate targets and spatial direction.</p></div>
+          <div><span>02</span><h3>Combat feedback</h3><p>Organized essential interface information around the pace of aerial combat.</p></div>
+          <div><span>03</span><h3>Team integration</h3><p>Integrated the UI work with the team's flight, weapons, level, and mission systems.</p></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</SiteLayout>

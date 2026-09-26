@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Balatront 项目案例 — Jadey"
+  description="一个使用 C++ 构建的纵向滚动玩法原型，涵盖地图拼接、输入、渲染与碰撞检测。"
+>
+  <article class="case-study">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/zh/design/#work">← 策划项目</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">C++ 玩法原型 · 系统设计</p>
+          <h1>Balatront</h1>
+          <p class="case-deck">一个纵向滚动原型，用基础渲染与碰撞系统验证持续移动、地图拼接和玩家控制。</p>
+          <a class="text-link case-github-link" href="https://github.com/Jadey0804/Balatront" target="_blank" rel="noreferrer">前往 GitHub 仓库 <span>↗</span></a>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>职责</dt><dd>玩法程序开发<br />系统设计</dd></div>
+          <div><dt>技术</dt><dd>C++</dd></div>
+          <div><dt>平台</dt><dd>Windows PC</dd></div>
+          <div><dt>状态</dt><dd>原型开发中</dd></div>
+        </dl>
+      </div>
+      <div class="case-hero-art balatront-visual" data-reveal>
+        <div class="visual-grid"></div>
+        <div class="flight-path" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="case-art-copy"><span>项目图片占位 / 01</span><strong>移动。<br />拼接。<br />碰撞。</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="overview-title">
+      <div class="case-sidebar"><p class="section-index">01 / 概览</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="overview-title">原型目标</h2>
+        <p class="lead-copy">用尽量直接的 C++ 实现搭建可运行的核心循环，并把世界生成、显示和碰撞拆成清晰的职责。</p>
+        <div class="goal-grid">
+          <div><span>01</span><h3>连续滚动</h3><p>通过可循环的地图块维持纵向移动，让场景持续向玩家展开。</p></div>
+          <div><span>02</span><h3>玩家控制</h3><p>读取方向输入并限制移动边界，保持操作反馈稳定、可预测。</p></div>
+          <div><span>03</span><h3>碰撞验证</h3><p>使用 Alpha 图读取可通行区域，验证角色与地形之间的碰撞关系。</p></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</SiteLayout>

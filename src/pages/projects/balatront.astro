@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Balatront Case Study — Jadey"
+  description="A C++ vertical-scrolling gameplay prototype covering world tiling, input, rendering, and collision detection."
+>
+  <article class="case-study">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/design/#work">← Design projects</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">C++ gameplay prototype · Systems design</p>
+          <h1>Balatront</h1>
+          <p class="case-deck">A vertical-scrolling prototype that tests continuous movement, world tiling, player control, and collision through a small rendering framework.</p>
+          <a class="text-link case-github-link" href="https://github.com/Jadey0804/Balatront" target="_blank" rel="noreferrer">View GitHub repository <span>↗</span></a>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>Role</dt><dd>Gameplay Programmer<br />Systems Designer</dd></div>
+          <div><dt>Technology</dt><dd>C++</dd></div>
+          <div><dt>Platform</dt><dd>Windows PC</dd></div>
+          <div><dt>Status</dt><dd>Prototype in progress</dd></div>
+        </dl>
+      </div>
+      <div class="case-hero-art balatront-visual" data-reveal>
+        <div class="visual-grid"></div>
+        <div class="flight-path" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="case-art-copy"><span>IMAGE PLACEHOLDER / 01</span><strong>MOVE.<br />TILE.<br />COLLIDE.</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="overview-title">
+      <div class="case-sidebar"><p class="section-index">01 / OVERVIEW</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="overview-title">Prototype goals</h2>
+        <p class="lead-copy">Build a playable core loop in direct C++ while keeping world generation, presentation, and collision responsibilities easy to inspect.</p>
+        <div class="goal-grid">
+          <div><span>01</span><h3>Continuous scrolling</h3><p>Cycle reusable world tiles to keep the play space moving beneath the player.</p></div>
+          <div><span>02</span><h3>Player control</h3><p>Read directional input and constrain movement to produce stable, predictable handling.</p></div>
+          <div><span>03</span><h3>Collision validation</h3><p>Sample alpha maps to test the relationship between the player and traversable terrain.</p></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</SiteLayout>
