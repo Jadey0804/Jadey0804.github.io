@@ -37,13 +37,13 @@ const common = isZh
       primary: 'Primary navigation',
     };
 
-const directionLabels = direction === 'client'
+const notesLabel = direction === 'client'
   ? isZh
-    ? { notes: '技术笔记', resume: '客户端版简历' }
-    : { notes: 'Technical notes', resume: 'Client résumé' }
+    ? '技术笔记'
+    : 'Technical notes'
   : isZh
-    ? { notes: '设计笔记', resume: '策划版简历' }
-    : { notes: 'Design notes', resume: 'Design résumé' };
+    ? '设计笔记'
+    : 'Design notes';
 ---
 
 <header class:list={['site-header', { 'site-header-landing': !showDirectionNav }]} data-site-header>
@@ -73,10 +73,9 @@ const directionLabels = direction === 'client'
         <div class="nav-primary">
           <a href={`${directionHome}#work`} aria-current={isProjectPage ? 'page' : undefined}>{common.work}</a>
           {direction === 'client' && (
-            <a href={`${directionHome}#notes`} aria-current={isNotesPage ? 'page' : undefined}>{directionLabels.notes}</a>
+            <a href={`${directionHome}#notes`} aria-current={isNotesPage ? 'page' : undefined}>{notesLabel}</a>
           )}
           {direction === 'client' && <a href={`${directionHome}#about`}>{common.about}</a>}
-          <a href="/Yujie-Liang-Resume.pdf" target="_blank" rel="noreferrer">{directionLabels.resume}</a>
         </div>
         <div class="nav-actions">
           <a

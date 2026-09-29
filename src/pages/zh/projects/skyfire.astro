@@ -4,43 +4,96 @@ import SiteLayout from '../../../layouts/SiteLayout.astro';
 
 <SiteLayout
   title="SkyFire Uprising 项目案例 — Jadey"
-  description="SkyFire Uprising 团队空战项目，以及 Jadey 在雷达和游戏 UI 方面的贡献。"
+  description="SkyFire Uprising 团队空战项目，以及我负责的实时 HUD、伪 3D 雷达和战斗反馈系统。"
 >
-  <article class="case-study">
+  <article class="case-study case-editorial">
     <header class="case-hero section-pad">
       <a class="back-link" href="/zh/design/#work">← 策划项目</a>
       <div class="case-title-row">
         <div data-reveal>
           <p class="eyebrow">团队项目 · UI 设计与实现</p>
           <h1>SkyFire Uprising</h1>
-          <p class="case-deck">一款包含机炮、追踪导弹和多环境飞行的空战游戏。我在团队中主要负责雷达及其他游戏 UI。</p>
+          <p class="case-deck">第三人称空战项目。我负责建立实时 HUD 子系统，让玩家在高速战斗中快速读取敌机方向、高度差、锁定状态、生命、导弹冷却和受击信息。</p>
           <a class="text-link case-github-link" href="https://github.com/pobertt/Skyfire_Uprising_Level4" target="_blank" rel="noreferrer">前往团队 GitHub 仓库 <span>↗</span></a>
         </div>
         <dl class="case-facts" data-reveal>
           <div><dt>项目性质</dt><dd>团队项目</dd></div>
-          <div><dt>个人职责</dt><dd>雷达 UI<br />其他游戏 UI</dd></div>
-          <div><dt>引擎</dt><dd>Unreal Engine</dd></div>
-          <div><dt>类型</dt><dd>空战游戏</dd></div>
+          <div><dt>个人职责</dt><dd>雷达 UI<br />战斗 HUD</dd></div>
+          <div><dt>技术</dt><dd>UE UMG<br />Blueprint / Material</dd></div>
+          <div><dt>状态</dt><dd>已集成可运行</dd></div>
         </dl>
       </div>
-      <div class="case-hero-art skyfire-visual" data-reveal>
-        <div class="visual-grid"></div>
-        <div class="radar-display" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="case-art-copy"><span>项目图片占位 / 03</span><strong>搜索。<br />锁定。<br />交战。</strong></div>
-      </div>
+      <figure class="case-hero-media" data-reveal>
+        <img src="/project-media/skyfire/hud-final.webp" alt="SkyFire Uprising 最终战斗 HUD" />
+        <figcaption>最终 HUD：雷达、准星与锁定、生命、冷却、任务目标和飞机状态共同服务于空战决策。</figcaption>
+      </figure>
     </header>
 
-    <section class="case-section section-pad" aria-labelledby="contribution-title">
-      <div class="case-sidebar"><p class="section-index">01 / 个人贡献</p></div>
+    <section class="case-section section-pad" aria-labelledby="sky-overview">
+      <div class="case-sidebar"><p class="section-index">01 / 项目概览</p></div>
       <div class="case-content" data-reveal>
-        <h2 id="contribution-title">让战斗信息保持清晰。</h2>
-        <p class="lead-copy">我的工作重点是把雷达和其他飞行战斗 UI 组织成易读的信息层级，让玩家能够快速判断目标、方向和当前状态。</p>
-        <div class="goal-grid">
-          <div><span>01</span><h3>雷达 UI</h3><p>负责雷达界面的设计与实现，为玩家提供目标和空间方位信息。</p></div>
-          <div><span>02</span><h3>战斗反馈</h3><p>配合空战节奏组织必要的界面信息，减少操作时的认知负担。</p></div>
-          <div><span>03</span><h3>团队协作</h3><p>将 UI 工作接入团队共同完成的飞行、武器、关卡与任务流程。</p></div>
+        <h2 id="sky-overview">项目概览与个人职责</h2>
+        <p class="lead-copy">空战同时要求玩家关注空中敌机、地面炮塔、自身状态和任务目标。我的工作不是改写战斗逻辑，而是读取已有状态、转换为稳定的屏幕反馈，并以低耦合方式接入团队项目。</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="sky-architecture">
+      <div class="case-sidebar"><p class="section-index">02 / 信息架构</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sky-architecture">HUD Widget 结构</h2>
+        <p class="lead-copy">界面被拆分为雷达、准星、玩家状态、冷却、任务目标和伤害反馈等子 Widget。团队只需在飞机 Blueprint 中创建 Main HUD 并加入 Viewport，各子系统即可从对应引用读取数据。</p>
+        <figure class="case-media"><img src="/project-media/skyfire/widget-structure.webp" alt="SkyFire Uprising UMG 主 HUD 与子 Widget 结构" /><figcaption>WBP_HUD_Main 作为容器，雷达、准星、生命与目标信息分别维护。</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="sky-radar">
+      <div class="case-sidebar"><p class="section-index">03 / 雷达流程</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sky-radar">伪 3D 雷达实现</h2>
+        <p class="lead-copy">我选择屏幕空间 UMG，而不是把雷达放进三维世界，避免镜头滚转、深度排序和可见性不一致。椭圆布局、扫描材质、方向点和高度条共同建立伪 3D 感。</p>
+        <div class="case-process">
+          <div><span>01</span><strong>接收敌人列表</strong><p>敌人由外部管理逻辑动态添加和移除，雷达只维护对应的 EnemyDot Widget。</p></div>
+          <div><span>02</span><strong>转换局部坐标</strong><p>使用玩家 Transform 的逆变换，把世界位置转换为以机头方向为基准的局部位置。</p></div>
+          <div><span>03</span><strong>映射雷达位置</strong><p>取水平向量映射到二维坐标，并反转 UMG 向下为正的 Y 轴。</p></div>
+          <div><span>04</span><strong>椭圆压缩</strong><p>用 Flatten Y 压缩纵向坐标，使圆形范围呈现为更有纵深感的椭圆。</p></div>
+          <div><span>05</span><strong>边缘夹取</strong><p>超出半径的目标被归一化并固定在边缘，玩家仍能判断屏外敌人的方向。</p></div>
+          <div><span>06</span><strong>显示高度差</strong><p>高度条与箭头表达敌机在上方或下方；接近平行高度时隐藏，减少视觉噪声。</p></div>
+        </div>
+        <div class="case-media-grid">
+          <figure class="case-media"><img src="/project-media/skyfire/radar-transform.webp" alt="SkyFire 雷达把敌人世界位置转换为雷达位置的 Blueprint" /><figcaption>世界位置到玩家局部坐标，再映射为雷达二维位置。</figcaption></figure>
+          <figure class="case-media"><img src="/project-media/skyfire/radar-final.webp" alt="SkyFire 最终伪 3D 雷达效果" /><figcaption>方向点、椭圆扫描面和高度指示共同构成最终雷达。</figcaption></figure>
         </div>
       </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="sky-feedback">
+      <div class="case-sidebar"><p class="section-index">04 / 战斗反馈</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sky-feedback">其他 HUD 功能</h2>
+        <div class="case-detail-grid">
+          <article><span>准星</span><h3>对齐真实瞄准方向</h3><p>读取飞机瞄准端点的世界坐标并投影到屏幕，避免把准星错误地固定在屏幕中心。</p></article>
+          <article><span>锁定范围</span><h3>复用同一投影基准</h3><p>锁定半径围绕投影后的瞄准点显示；检测到 Enemy 后改变颜色提示可攻击状态。</p></article>
+          <article><span>生命与冷却</span><h3>离散生命格 + 连续冷却条</h3><p>20 格生命强调损伤级别；导弹条用百分比表达何时可以再次发射。</p></article>
+          <article><span>受击提示</span><h3>视觉警告强化危险</h3><p>生命下降时播放红色闪屏和“BEING ATTACKED”动画，在高负荷战斗中抢回注意力。</p></article>
+          <article><span>飞机状态</span><h3>速度、高度与位置</h3><p>读取玩家飞机数据并格式化为 SPD、ALT、POS，支撑导航和飞行状态判断。</p></article>
+          <article><span>新手引导</span><h3>集中解释规则</h3><p>开始界面说明操作、敌人类型、战斗技巧和任务流程，降低首次进入的理解成本。</p></article>
+        </div>
+        <figure class="case-media"><img src="/project-media/skyfire/damage-warning.webp" alt="SkyFire Uprising 受击警告效果" /><figcaption>受击反馈在保留主要战斗信息的同时，用边缘红光和文字提示强化危险。</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="sky-result">
+      <div class="case-sidebar"><p class="section-index">05 / 结果与改进</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sky-result">评估与改进</h2>
+        <p class="lead-copy">最终系统覆盖雷达、敌机指示、锁定反馈、生命与冷却、飞机状态、伤害警告和新手引导，并成功接入团队项目。当前局限是部分布局未完全适配不同分辨率，部分更新依赖 Tick，锁定反馈也可以继续加入声音和目标高亮框。</p>
+        <aside class="decision-callout"><span>下一步</span><p>统一使用 Anchor、Overlay 与 SizeBox 改善多分辨率表现；将可事件驱动的数据从 Tick 中移出，并增加锁定音效和敌机高亮以形成多通道反馈。</p></aside>
+      </div>
+    </section>
+
+    <section class="next-case section-pad" data-reveal>
+      <p class="section-index">下一篇</p>
+      <a href="/zh/projects/cozy-horror/"><span>概念与叙事解谜设计</span><strong>Dreamweaver <i>→</i></strong></a>
     </section>
   </article>
 </SiteLayout>

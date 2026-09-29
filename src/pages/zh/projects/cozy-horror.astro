@@ -1,0 +1,113 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Dreamweaver 概念设计 — Jadey"
+  description="Dreamweaver 是一款跨文化温和恐怖叙事解谜概念，围绕梦境探索、线索推理、文化干预谜题和噩梦净化展开。"
+>
+  <article class="case-study case-editorial cozy-case">
+    <header class="case-hero section-pad">
+      <a class="back-link" href="/zh/design/#work">← 策划项目</a>
+      <div class="case-title-row">
+        <div data-reveal>
+          <p class="eyebrow">概念设计 · 叙事解谜 · Cozy Horror</p>
+          <h1>Dreamweaver</h1>
+          <p class="case-deck">玩家作为“解梦师”进入不同文化背景的梦境，通过环境观察、线索推理和文化相关的谜题理解恐惧，并帮助梦境主人完成疗愈。</p>
+        </div>
+        <dl class="case-facts" data-reveal>
+          <div><dt>职责</dt><dd>游戏概念<br />叙事与谜题设计</dd></div>
+          <div><dt>类型</dt><dd>探索<br />叙事解谜</dd></div>
+          <div><dt>目标平台</dt><dd>PC / Steam</dd></div>
+          <div><dt>阶段</dt><dd>概念设计</dd></div>
+        </dl>
+      </div>
+      <div class="case-concept-cover" data-reveal>
+        <span>COZY HORROR / CROSS-CULTURAL FOLKLORE</span>
+        <strong>进入梦境。<br />理解恐惧。<br />修复故事。</strong>
+      </div>
+    </header>
+
+    <section class="case-section section-pad" aria-labelledby="cozy-overview">
+      <div class="case-sidebar"><p class="section-index">01 / 项目概览</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-overview">游戏概念</h2>
+        <p class="lead-copy">每个章节取材于不同地区的民俗与禁忌，例如中国冥婚、日本神社传说、欧洲森林精灵和墨西哥亡灵节。章节表面独立，背后却由同一个噩梦串联；最终玩家发现解梦师自己也身处梦中，需要面对自身恐惧。</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="cozy-loop">
+      <div class="case-sidebar"><p class="section-index">02 / 核心循环</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-loop">核心玩法流程</h2>
+        <div class="case-process">
+          <div><span>01</span><strong>进入梦境</strong><p>抵达一个受特定民俗和个人记忆影响的异常空间。</p></div>
+          <div><span>02</span><strong>观察异象</strong><p>寻找循环事件、镜像异常、空间变化和不合常理的环境细节。</p></div>
+          <div><span>03</span><strong>收集碎片</strong><p>获得物品、日记、符号与记忆片段，逐步拼出梦境主人的经历。</p></div>
+          <div><span>04</span><strong>判断恐惧原型</strong><p>从失去名字、家园、控制或记忆等原型中判断噩梦的核心。</p></div>
+          <div><span>05</span><strong>文化干预谜题</strong><p>按照该文化语境中的规则调整仪式、路径、物件关系或祭坛顺序。</p></div>
+          <div><span>06</span><strong>净化与复盘</strong><p>梦境结构恢复，故事完整呈现，相关文化资料进入图鉴。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="cozy-chapters">
+      <div class="case-sidebar"><p class="section-index">03 / 章节设计</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-chapters">章节与叙事结构</h2>
+        <div class="case-detail-grid">
+          <article><span>中国章节</span><h3>仪式顺序与红线</h3><p>在冥婚梦境中观察仪式关系，通过调整红线或牌位顺序打破错误循环。</p></article>
+          <article><span>日本章节</span><h3>镜面与路径</h3><p>在神社梦境中利用镜子识别真实路线，让观察角度成为解谜工具。</p></article>
+          <article><span>欧洲章节</span><h3>传说与祭坛</h3><p>根据森林传说收集线索，按正确关系触发祭坛，而不是依赖无语境密码。</p></article>
+          <article><span>统一结构</span><h3>恐惧图鉴</h3><p>跨章节记录噩梦类型、民俗背景和已发现线索，让独立故事形成整体认知。</p></article>
+        </div>
+        <aside class="decision-callout"><span>文化表达</span><p>文化注释卡是可选信息层，不中断主流程。正式制作时需要研究资料与文化顾问复核，避免把民俗只当作视觉猎奇素材。</p></aside>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="cozy-support">
+      <div class="case-sidebar"><p class="section-index">04 / 支撑系统</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-support">提示、图鉴与文化注释</h2>
+        <div class="case-detail-grid">
+          <article><span>交互</span><h3>线索门槛</h3><p>找到必要线索后才出现对应交互提示，使行为与推理结果保持一致。</p></article>
+          <article><span>渐进提示</span><h3>从环境提醒到关系提示</h3><p>停留过久时先指向重要物体，再提示线索之间的关系，保留最终推理空间。</p></article>
+          <article><span>图鉴</span><h3>记录进度与文化背景</h3><p>收录噩梦类型、民俗背景和关键线索，既是收藏，也帮助回顾跨章节信息。</p></article>
+          <article><span>舒适边界</span><h3>可控的恐怖强度</h3><p>通过内容提示、可调节节奏和温和失败惩罚，让玩家主动决定承受程度。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="cozy-roadmap">
+      <div class="case-sidebar"><p class="section-index">05 / 制作流程</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-roadmap">从概念到产品的开发流程</h2>
+        <div class="case-process">
+          <div><span>01</span><strong>概念验证</strong><p>确定主题、核心循环和视觉语气，明确“理解恐惧”而非“逃离怪物”。</p></div>
+          <div><span>02</span><strong>基础原型</strong><p>实现移动、观察、交互、物品和一组简单谜题，验证线索是否可读。</p></div>
+          <div><span>03</span><strong>垂直切片</strong><p>完成一个文化章节，包含探索、叙事、谜题、净化与图鉴闭环。</p></div>
+          <div><span>04</span><strong>玩家测试</strong><p>观察谜题难度、叙事理解、节奏和心理安全边界，调整提示层级。</p></div>
+          <div><span>05</span><strong>内容扩展</strong><p>在统一恐惧原型与隐藏主线下增加新章节，不破坏已有结构。</p></div>
+          <div><span>06</span><strong>发布与更新</strong><p>完成 PC 版本后持续加入经过研究与验证的新文化故事。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="cozy-visual">
+      <div class="case-sidebar"><p class="section-index">06 / 视觉方向</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="cozy-visual">视觉风格参考</h2>
+        <p class="lead-copy">视觉目标是神秘、孤独但不过度压迫：柔和材质与可读轮廓提供亲近感，空旷构图、暗处异象和色彩反差保留恐怖张力。</p>
+        <div class="case-media-grid">
+          <figure class="case-media"><img src="/project-media/cozy-horror/visual-reference-interior.webp" alt="Cozy Horror 室内氛围视觉参考" /><figcaption>视觉参考（非本项目实机）：用局部暖光包围角色，外围保持不确定性。</figcaption></figure>
+          <figure class="case-media"><img src="/project-media/cozy-horror/visual-reference-forest.webp" alt="Cozy Horror 森林氛围视觉参考" /><figcaption>视觉参考（非本项目实机）：绘本质感与隐藏目光形成温和而持续的不安。</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="next-case section-pad" data-reveal>
+      <p class="section-index">返回项目列表</p>
+      <a href="/zh/design/#work"><span>查看全部策划项目</span><strong>玩法策划作品集 <i>→</i></strong></a>
+    </section>
+  </article>
+</SiteLayout>

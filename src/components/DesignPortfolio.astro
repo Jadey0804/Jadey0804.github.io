@@ -15,7 +15,7 @@ const copy = isZh
       focus: '方向',
       focusValue: '玩法策划 / 关卡设计',
       tools: '工具',
-      toolsValue: 'UE5 · Blueprint · C++',
+      toolsValue: 'UE5 · 蓝图 · C++',
       imagePlaceholder: '项目图片占位',
       detailLink: '查看项目详情',
       githubLink: '前往 GitHub 仓库',
@@ -26,11 +26,11 @@ const copy = isZh
           type: 'C++ 玩法原型 · 系统设计',
           year: '2026',
           body: '一个使用 C++ 构建的纵向滚动玩法原型，包含动态地图拼接、玩家输入、图像渲染与基于 Alpha 图的碰撞检测。',
-          tags: ['C++', 'Gameplay Prototype', 'Collision', '2D Rendering'],
+          tags: ['C++', '玩法原型', '碰撞系统', '2D 渲染'],
           detailHref: `${base}/projects/balatront/`,
           githubHref: 'https://github.com/Jadey0804/Balatront',
           visualClass: 'balatront-visual',
-          visualTitle: 'BALATRONT',
+          visualTitle: 'Balatront',
         },
         {
           index: '02 / SUNKEN CITY',
@@ -38,11 +38,11 @@ const copy = isZh
           type: '玩法系统 · 关卡设计',
           year: '2026',
           body: '一款第三人称水下探索游戏，结合移动、氧气压力、系统性交互、环境谜题与鱼群 AI。',
-          tags: ['Unreal Engine 5', 'Blueprint', 'C++', '谜题设计'],
+          tags: ['虚幻引擎 5', '蓝图', 'C++', '谜题设计'],
           detailHref: `${base}/projects/sunken-city/`,
           githubHref: 'https://github.com/Jadey0804/SunkenCity',
           visualClass: 'ocean-visual',
-          visualTitle: 'SUNKEN CITY',
+          visualTitle: 'SunkenCity',
         },
         {
           index: '03 / SKYFIRE',
@@ -50,11 +50,23 @@ const copy = isZh
           type: '团队项目 · UI 设计与实现',
           year: '2026',
           body: '一款 Unreal Engine 空战游戏。项目由团队共同完成，我主要负责雷达及其他游戏 UI 的设计与实现。',
-          tags: ['Unreal Engine', 'Team Project', 'Radar UI', 'Game UI'],
+          tags: ['虚幻引擎', '团队项目', '雷达界面', '游戏界面'],
           detailHref: `${base}/projects/skyfire/`,
           githubHref: 'https://github.com/pobertt/Skyfire_Uprising_Level4',
           visualClass: 'skyfire-visual',
-          visualTitle: 'SKYFIRE',
+          visualTitle: 'SkyFire Uprising',
+        },
+        {
+          index: '04 / COZY HORROR GAME',
+          title: 'Dreamweaver',
+          type: '概念设计 · 叙事解谜',
+          year: '2026',
+          body: '一款以跨文化民俗为章节结构的温和恐怖解谜概念。玩家进入梦境、收集线索、判断恐惧原型，并通过文化相关的谜题净化噩梦。',
+          tags: ['游戏概念', '叙事设计', '谜题设计', '温和恐怖'],
+          detailHref: `${base}/projects/cozy-horror/`,
+          githubHref: undefined,
+          visualClass: 'cozy-visual',
+          visualTitle: 'Dreamweaver',
         },
       ],
     }
@@ -139,6 +151,8 @@ const copy = isZh
               </svg>
             ) : project.visualClass === 'skyfire-visual' ? (
               <div class="radar-display" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            ) : project.visualClass === 'cozy-visual' ? (
+              <div class="dream-fragments" aria-hidden="true"><i></i><i></i><i></i></div>
             ) : (
               <div class="flight-path" aria-hidden="true"><i></i><i></i><i></i></div>
             )}
@@ -153,7 +167,9 @@ const copy = isZh
             <ul class="tag-list">{project.tags.map((tag) => <li>{tag}</li>)}</ul>
             <div class="project-links">
               <a class="text-link" href={project.detailHref}>{copy.detailLink} <span>→</span></a>
-              <a class="text-link" href={project.githubHref} target="_blank" rel="noreferrer">{copy.githubLink} <span>↗</span></a>
+              {project.githubHref && (
+                <a class="text-link" href={project.githubHref} target="_blank" rel="noreferrer">{copy.githubLink} <span>↗</span></a>
+              )}
             </div>
           </div>
         </div>

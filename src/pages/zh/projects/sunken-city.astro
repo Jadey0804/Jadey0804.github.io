@@ -1,121 +1,96 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
-import BilibiliPlayer from '../../../components/BilibiliPlayer.astro';
 ---
 
 <SiteLayout
   title="沉没之城项目案例 — Jadey"
-  description="一份 Unreal Engine 5 项目案例，涵盖水下玩法、系统性交互、谜题与关卡设计。"
+  description="一款 Unreal Engine 5 第三人称探索与解谜原型，包含关卡流程、系统性交互、氧气压力和 Boids 鱼群。"
 >
-  <article class="case-study">
+  <article class="case-study case-editorial">
     <header class="case-hero section-pad">
       <a class="back-link" href="/zh/design/#work">← 策划项目</a>
       <div class="case-title-row">
         <div data-reveal>
-          <p class="eyebrow">玩法系统 · 关卡设计</p>
+          <p class="eyebrow">独立项目 · 玩法系统与关卡设计</p>
           <h1>沉没之城</h1>
-          <p class="case-deck">
-            一款水下探索原型：移动、氧气压力、交互与环境谜题，共享一套清晰易读的设计语言。
-          </p>
+          <p class="case-deck">玩家从码头登陆，在灯塔获得线索，通过仓库与机关寻找潜水装备，最终进入水下遗迹取得宝藏。</p>
+          <a class="text-link case-github-link" href="https://github.com/Jadey0804/SunkenCity" target="_blank" rel="noreferrer">前往 GitHub 仓库 <span>↗</span></a>
         </div>
         <dl class="case-facts" data-reveal>
-          <div><dt>职责</dt><dd>玩法程序开发<br />关卡设计</dd></div>
-          <div><dt>引擎</dt><dd>Unreal Engine 5.4.4</dd></div>
+          <div><dt>职责</dt><dd>玩法程序<br />关卡设计</dd></div>
+          <div><dt>技术</dt><dd>UE5<br />C++ / Blueprint</dd></div>
           <div><dt>平台</dt><dd>Windows PC</dd></div>
-          <div><dt>状态</dt><dd>作品集原型</dd></div>
+          <div><dt>状态</dt><dd>可玩原型</dd></div>
         </dl>
       </div>
-      <div class="case-hero-art ocean-visual" data-reveal>
-        <div class="visual-grid"></div>
-        <svg viewBox="0 0 1200 580" aria-hidden="true">
-          <path d="M40 420c143-148 260-248 425-216 130 25 170 122 284 61 164-87 250 15 414 163" />
-          <path d="M18 505c180-113 314-70 417-167 114-108 214 13 308 24 158 18 264 50 447 147" />
-          <circle cx="454" cy="267" r="58" />
-          <circle cx="832" cy="340" r="34" />
-        </svg>
-        <div class="case-art-copy">
-          <span>项目案例 / 01</span>
-          <strong>下潜。<br />观察。<br />解谜。</strong>
-        </div>
-      </div>
+      <figure class="case-hero-media case-media-contain" data-reveal>
+        <img src="/project-media/sunken-city/world-map.webp" alt="沉没之城从码头、灯塔、仓库到水下宝藏的关卡地图" />
+        <figcaption>整体关卡草图：用地标、装备门槛和机关顺序组织从岛屿到海底的推进路线。</figcaption>
+      </figure>
     </header>
 
-    <section class="case-section section-pad" aria-labelledby="overview-title">
-      <div class="case-sidebar">
-        <p class="section-index">01 / 概览</p>
-      </div>
+    <section class="case-section section-pad" aria-labelledby="sunken-overview">
+      <div class="case-sidebar"><p class="section-index">01 / 项目概览</p></div>
       <div class="case-content" data-reveal>
-        <h2 id="overview-title">设计挑战</h2>
-        <p class="lead-copy">
-          让水下移动既有陌生感又保持易读，并让玩家掌握足够的规则，在适度资源压力下完成物理谜题。
-        </p>
-        <div class="goal-grid">
-          <div><span>01</span><h3>易读的移动</h3><p>利用空间与地标，教会玩家下潜、上浮与加速。</p></div>
-          <div><span>02</span><h3>系统性谜题</h3><p>复用搬运、投掷、压力与重量，而不是堆叠一次性交互。</p></div>
-          <div><span>03</span><h3>可控的压力</h3><p>让氧气影响节奏，同时保持探索过程容易上手。</p></div>
+        <h2 id="sunken-overview">项目概览</h2>
+        <p class="lead-copy">核心循环是探索环境、发现阻碍、找到合适工具或物体、解决机关并解锁下一区域。项目重点不是一次性脚本，而是让投掷、搬运、压力板、电梯和氧气规则在不同空间中重复组合。</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="sunken-flow">
+      <div class="case-sidebar"><p class="section-index">02 / 完整流程</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sunken-flow">完整关卡流程</h2>
+        <div class="case-process">
+          <div><span>01</span><strong>码头登陆</strong><p>通过环境和远处灯塔建立方向，学习移动与基础交互。</p></div>
+          <div><span>02</span><strong>灯塔取图</strong><p>找到地图，确认宝藏的大致位置与需要进入水下的目标。</p></div>
+          <div><span>03</span><strong>仓库解谜</strong><p>组合投掷、搬运、压力板和配重电梯，取得潜水装备与氧气瓶。</p></div>
+          <div><span>04</span><strong>进入水井</strong><p>从陆地探索切换到游泳，先在安全区域熟悉上浮、下潜与加速。</p></div>
+          <div><span>05</span><strong>水下推进</strong><p>沿氧气点前进，在有限呼吸时间内寻找关键物品和下一入口。</p></div>
+          <div><span>06</span><strong>取得宝藏</strong><p>完成最终水下路线后到达遗迹，拿到宝藏并完成游戏。</p></div>
         </div>
       </div>
     </section>
 
-    <section class="case-section section-pad case-section-dark" aria-labelledby="video-title">
-      <div class="case-sidebar"><p class="section-index">02 / 实机展示</p></div>
+    <section class="case-section section-pad" aria-labelledby="sunken-systems">
+      <div class="case-sidebar"><p class="section-index">03 / 玩法系统</p></div>
       <div class="case-content" data-reveal>
-        <div class="inline-heading">
-          <h2 id="video-title">让视频紧邻它所证明的设计决策。</h2>
-          <p>这里复用了首页中的 Bilibili 播放组件。</p>
-        </div>
-        <BilibiliPlayer bvid="BV1mfTW6vESe" title="作品集案例中的 Bilibili 视频嵌入演示" />
-        <p class="media-credit">当前为演示参考视频，完成案例后将替换为你自己的实机展示。</p>
-      </div>
-    </section>
-
-    <section class="case-section section-pad" aria-labelledby="flow-title">
-      <div class="case-sidebar"><p class="section-index">03 / 关卡流程</p></div>
-      <div class="case-content" data-reveal>
-        <h2 id="flow-title">教学 → 测试 → 重组</h2>
-        <p class="lead-copy">
-          关卡先在安全环境中引入一个动作，再用清晰目标进行测试，最后把它与氧气压力和物体交互组合起来。
-        </p>
-        <div class="flow-diagram" aria-label="四阶段关卡流程">
-          <div><span>01</span><strong>安全下潜</strong><small>学习垂直移动</small></div>
-          <i aria-hidden="true">→</i>
-          <div><span>02</span><strong>可见目标</strong><small>理解被锁住的路线</small></div>
-          <i aria-hidden="true">→</i>
-          <div><span>03</span><strong>压力测试</strong><small>在氧气消耗下搬运</small></div>
-          <i aria-hidden="true">→</i>
-          <div><span>04</span><strong>规则重组</strong><small>组合已经学会的规则</small></div>
+        <h2 id="sunken-systems">关键玩法系统</h2>
+        <div class="case-detail-grid">
+          <article><span>Interaction</span><h3>交互目标选择</h3><p>Interaction Component 检测附近对象，通过接口调用不同 Actor 的交互逻辑并显示提示。</p></article>
+          <article><span>Throwing</span><h3>投掷与落点预览</h3><p>支持装备、瞄准、轨迹预测和投掷，用小型物体远程触发机关或影响环境。</p></article>
+          <article><span>Carry</span><h3>搬运与压力板</h3><p>重物可以拾取、携带和放下；压力板读取进入区域的物体并改变机关状态。</p></article>
+          <article><span>Mechanism</span><h3>配重电梯</h3><p>平台沿样条路线移动，并根据障碍或机关状态暂停、继续，把玩家操作连接到空间推进。</p></article>
+          <article><span>Oxygen</span><h3>水下氧气</h3><p>潜水持续消耗氧气，加速游泳消耗更快；氧气点恢复资源，耗尽后失败。</p></article>
+          <article><span>Architecture</span><h3>事件与接口解耦</h3><p>功能拆分为玩家组件、交互 Actor、谜题 Actor、UI 与 AI，通过碰撞、事件和接口协作。</p></article>
         </div>
       </div>
     </section>
 
-    <section class="case-section section-pad" aria-labelledby="iteration-title">
-      <div class="case-sidebar"><p class="section-index">04 / 迭代</p></div>
+    <section class="case-section section-pad" aria-labelledby="sunken-underwater">
+      <div class="case-sidebar"><p class="section-index">04 / 水下设计</p></div>
       <div class="case-content" data-reveal>
-        <h2 id="iteration-title">让改动一目了然。</h2>
-        <p class="lead-copy">完整案例需要说明改了什么、为什么改。下面的画面演示了预期的呈现方式。</p>
-        <div class="iteration-grid">
-          <figure class="iteration-frame iteration-before">
-            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
-            <figcaption><span>修改前 / V01</span><strong>目标与路线争夺玩家注意力</strong></figcaption>
-          </figure>
-          <figure class="iteration-frame iteration-after">
-            <div class="blockout-scene"><i></i><i></i><i></i><i></i></div>
-            <figcaption><span>修改后 / V03</span><strong>地标、光照与构图指向一致</strong></figcaption>
-          </figure>
+        <h2 id="sunken-underwater">水下区域与鱼群 AI</h2>
+        <p class="lead-copy">水下区域把氧气点放在主要路线上，重要物品与下一入口形成阶段目标。鱼群不仅填充空间，还会在玩家靠近时散开并重新聚合，让移动方向和环境反应更容易被感知。</p>
+        <div class="case-media-grid">
+          <figure class="case-media case-media-contain"><img src="/project-media/sunken-city/underwater-route.webp" alt="沉没之城水下区域路线、氧气点与关键物品规划" /><figcaption>水下路线规划：绿色为氧气点，橙色为关键物品，蓝线为玩家主路径。</figcaption></figure>
+          <figure class="case-media"><img src="/project-media/sunken-city/boids-fish.webp" alt="Unreal Engine 中的 Boids 鱼群效果" /><figcaption>Boids 鱼群使用分离、对齐和聚合规则，并对玩家产生逃逸反应。</figcaption></figure>
         </div>
-        <aside class="decision-callout">
-          <span>设计决策</span>
-          <p>把目标移到地平线之上，减少相互竞争的轮廓，并让返程路线从新角度复用同一个地标。</p>
-        </aside>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="sunken-testing">
+      <div class="case-sidebar"><p class="section-index">05 / 测试与反思</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="sunken-testing">测试、结果与当前局限</h2>
+        <p class="lead-copy">测试覆盖目标可见性、交互提示、投掷和搬运可靠性、物理与重叠状态、氧气危险反馈，以及从登陆到水下宝藏的完整推进。当前限制是谜题数量、动画/UI 完成度和美术音效仍不足。</p>
+        <aside class="decision-callout"><span>下一步</span><p>把现有机关整理成能互相组合的谜题语汇；让鱼群进一步承担路线引导或环境谜题功能，并通过更多玩家测试调整氧气点距离与提示强度。</p></aside>
       </div>
     </section>
 
     <section class="next-case section-pad" data-reveal>
       <p class="section-index">下一篇</p>
-      <a href="/zh/analysis/player-guidance/">
-        <span>阅读相关设计笔记</span>
-        <strong>通过空间教会玩家移动 <i>→</i></strong>
-      </a>
+      <a href="/zh/projects/skyfire/"><span>团队项目中的个人贡献</span><strong>SkyFire Uprising <i>→</i></strong></a>
     </section>
   </article>
 </SiteLayout>
