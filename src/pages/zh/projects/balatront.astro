@@ -4,43 +4,89 @@ import SiteLayout from '../../../layouts/SiteLayout.astro';
 
 <SiteLayout
   title="Balatront 项目案例 — Jadey"
-  description="一个使用 C++ 构建的纵向滚动玩法原型，涵盖地图拼接、输入、渲染与碰撞检测。"
+  description="Balatront 是一款使用 C++ 完成的双摇杆生存射击原型，包含双地图流程、战斗、程序化地图、连续碰撞与存档系统。"
 >
-  <article class="case-study">
+  <article class="case-study case-editorial">
     <header class="case-hero section-pad">
       <a class="back-link" href="/zh/design/#work">← 策划项目</a>
       <div class="case-title-row">
         <div data-reveal>
-          <p class="eyebrow">C++ 玩法原型 · 系统设计</p>
+          <p class="eyebrow">独立项目 · C++ 玩法与系统设计</p>
           <h1>Balatront</h1>
-          <p class="case-deck">一个纵向滚动原型，用基础渲染与碰撞系统验证持续移动、地图拼接和玩家控制。</p>
+          <p class="case-deck">从固定地图进入无限世界的双摇杆生存射击原型。我独立完成玩法循环、敌人、武器、地图、碰撞、存档与性能分析。</p>
           <a class="text-link case-github-link" href="https://github.com/Jadey0804/Balatront" target="_blank" rel="noreferrer">前往 GitHub 仓库 <span>↗</span></a>
         </div>
         <dl class="case-facts" data-reveal>
-          <div><dt>职责</dt><dd>玩法程序开发<br />系统设计</dd></div>
-          <div><dt>技术</dt><dd>C++</dd></div>
+          <div><dt>职责</dt><dd>玩法程序<br />系统设计</dd></div>
+          <div><dt>技术</dt><dd>C++<br />软件渲染</dd></div>
           <div><dt>平台</dt><dd>Windows PC</dd></div>
-          <div><dt>状态</dt><dd>原型开发中</dd></div>
+          <div><dt>状态</dt><dd>完整可玩原型</dd></div>
         </dl>
       </div>
-      <div class="case-hero-art balatront-visual" data-reveal>
-        <div class="visual-grid"></div>
-        <div class="flight-path" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="case-art-copy"><span>项目图片占位 / 01</span><strong>移动。<br />拼接。<br />碰撞。</strong></div>
-      </div>
+      <figure class="case-hero-media" data-reveal>
+        <img src="/project-media/balatront/level-one.webp" alt="Balatront 第一关固定地图、敌人、传送门与调试信息" />
+        <figcaption>第一关实机：固定地图、四类敌人、传送门与战斗状态。</figcaption>
+      </figure>
     </header>
 
-    <section class="case-section section-pad" aria-labelledby="overview-title">
-      <div class="case-sidebar"><p class="section-index">01 / 概览</p></div>
+    <section class="case-section section-pad" aria-labelledby="bal-overview">
+      <div class="case-sidebar"><p class="section-index">01 / 项目概览</p></div>
       <div class="case-content" data-reveal>
-        <h2 id="overview-title">原型目标</h2>
-        <p class="lead-copy">用尽量直接的 C++ 实现搭建可运行的核心循环，并把世界生成、显示和碰撞拆成清晰的职责。</p>
-        <div class="goal-grid">
-          <div><span>01</span><h3>连续滚动</h3><p>通过可循环的地图块维持纵向移动，让场景持续向玩家展开。</p></div>
-          <div><span>02</span><h3>玩家控制</h3><p>读取方向输入并限制移动边界，保持操作反馈稳定、可预测。</p></div>
-          <div><span>03</span><h3>碰撞验证</h3><p>使用 Alpha 图读取可通行区域，验证角色与地形之间的碰撞关系。</p></div>
+        <h2 id="bal-overview">项目概览</h2>
+        <p class="lead-copy">玩家驾驶飞行器，在不断加速的敌潮中生存。第一关用于学习规则并寻找传送门；第二关把相同战斗系统放进由随机种子生成的无限地图，最终根据击杀、强化与剩余生命结算评级。</p>
+      </div>
+    </section>
+
+    <section class="case-section section-pad case-section-dark" aria-labelledby="bal-flow">
+      <div class="case-sidebar"><p class="section-index">02 / 完整流程</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="bal-flow">游戏完整流程</h2>
+        <div class="case-process">
+          <div><span>01</span><strong>加载配置</strong><p>读取玩法数值、精灵与地图资源；格式错误时阻止进入游戏。</p></div>
+          <div><span>02</span><strong>第一关生存</strong><p>在 42 × 42 固定地图中认识地形、敌人、武器和强化。</p></div>
+          <div><span>03</span><strong>传送门开启</strong><p>120 秒后传送门出现，但战斗不中断；玩家需要主动抵达入口。</p></div>
+          <div><span>04</span><strong>状态继承</strong><p>进入第二关时保留生命、强化和攻击冷却，清理旧关卡实体。</p></div>
+          <div><span>05</span><strong>无限地图生存</strong><p>随机种子生成道路、水域与岩浆；继续承受递增敌潮 120 秒。</p></div>
+          <div><span>06</span><strong>结算</strong><p>击杀、强化与剩余生命转化为分数，并给出 A 至 SSS 评级。</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="bal-systems">
+      <div class="case-sidebar"><p class="section-index">03 / 核心系统</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="bal-systems">主要技术实现</h2>
+        <div class="case-detail-grid">
+          <article><span>移动与镜头</span><h3>世界坐标和屏幕坐标分离</h3><p>虚拟镜头跟随玩家；固定地图限制镜头边界，无限地图始终让玩家保持在视野中心。</p></article>
+          <article><span>敌人生态</span><h3>四类敌人共享更新结构</h3><p>普通追击、快速低血、缓慢高伤与固定炮塔使用同一数据结构，由类型配置决定行为。</p></article>
+          <article><span>碰撞</span><h3>连续圆形扫描减少穿透</h3><p>用一帧内的相对运动计算命中时刻，处理高速弹丸、敌人接触、拾取物与传送门。</p></article>
+          <article><span>战斗与成长</span><h3>自动攻击 + 八方向攻击 + AOE</h3><p>三种攻击覆盖不同决策；每五次击杀掉落强化，交替提升射速或 AOE 目标数量。</p></article>
+          <article><span>地形</span><h3>规则可读的环境风险</h3><p>道路加速、水域阻挡、岩浆持续伤害、医疗包恢复生命，让地图参与战斗决策。</p></article>
+          <article><span>存档</span><h3>随时保存并回到同一状态</h3><p>记录关卡、时间、实体数组、地图和随机种子，并用版本号、校验和与临时文件降低损坏风险。</p></article>
+        </div>
+        <figure class="case-media" data-reveal>
+          <img src="/project-media/balatront/infinite-map.webp" alt="Balatront 第二关无限地图实机画面" />
+          <figcaption>第二关：相同种子和坐标会生成相同地形，不需要在内存中保存整个无限世界。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section section-pad" aria-labelledby="bal-result">
+      <div class="case-sidebar"><p class="section-index">04 / 结果与迭代</p></div>
+      <div class="case-content" data-reveal>
+        <h2 id="bal-result">存档、性能与项目局限</h2>
+        <p class="lead-copy">最终原型可以从开始运行到胜利或失败，双关卡、强化、评分和存档均可用。性能分析显示地图绘制和敌人精灵绘制是主要 CPU 开销；后续最值得投入的是空间网格、缩放精灵缓存和地图区域缓存。</p>
+        <div class="case-media-grid">
+          <figure class="case-media"><img src="/project-media/balatront/victory.webp" alt="Balatront 胜利结算与 SSS 评级" /><figcaption>完整通关结算：击杀、强化、生命、分数与评级。</figcaption></figure>
+          <figure class="case-media"><img src="/project-media/balatront/cpu-profile.webp" alt="Balatront Visual Studio CPU 性能分析" /><figcaption>CPU 分析用于确认地图与精灵绘制是主要性能热点。</figcaption></figure>
+        </div>
+        <aside class="decision-callout"><span>反思</span><p>如果重新开始，我会先确定核心数据结构、资源格式和关卡状态，再尽早加入空间网格，让碰撞优化不必在项目后期重构主循环。</p></aside>
+      </div>
+    </section>
+
+    <section class="next-case section-pad" data-reveal>
+      <p class="section-index">下一篇</p>
+      <a href="/zh/projects/sunken-city/"><span>关卡与系统性交互</span><strong>沉没之城 <i>→</i></strong></a>
     </section>
   </article>
 </SiteLayout>
